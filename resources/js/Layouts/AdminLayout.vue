@@ -11,7 +11,7 @@ import FlashMessage from "./Components/Admin/FlashMessage.vue";
             <Header></Header>
         </div>
         <div class="flex">
-            <div class="min-w-[300px] max-w-[300px]">
+            <div class="min-w-[300px] max-w-[300px] bg-white">
                 <SideNav></SideNav>
             </div>
             <div class="w-full bg-gray-100">

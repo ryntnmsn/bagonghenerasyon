@@ -25,38 +25,59 @@
                     >
                 </li>
 
-                <li
-                    @click="toggle('articles')"
-                    :class="{
-                        'active text-white font-medium bg-red':
-                            page.url.startsWith('/admin/articles'),
-                        'text-slate-600': page.url.startsWith('/articles'),
-                    }"
-                    class="px-5 py-2"
-                >
-                    <Link
-                        :href="route('articles.index')"
-                        class="flex gap-2 flex-row items-center"
-                        ><Newspaper class="w-4" /><span>articles</span></Link
-                    >
-                </li>
-
                 <li>
+                    <!-- Toggle button -->
+                    <button
+                        :class="{
+                            'active text-white font-medium bg-red':
+                                page.url.startsWith('/admin/articles'),
+                            'text-slate-600': page.url.startsWith('/articles'),
+                        }"
+                        @click="toggle('articles')"
+                        class="flex w-full items-center gap-2 uppercase px-5 py-2 hover:text-red"
+                        type="button"
+                    >
+                        <Newspaper class="w-4" />
+                        <span>Articles</span>
+
+                        <!-- Optional arrow -->
+                        <svg
+                            class="ml-auto h-4 w-4 transition-transform"
+                            :class="{ 'rotate-180': openMenu === 'articles' }"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 9l-7 7-7-7"
+                            />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown -->
                     <ul
                         v-show="openMenu === 'articles'"
-                        class="px-5 py-2 bg-red-50"
+                        class="pt-2 ps-5 rounded-md bg-red-50"
                     >
-                        <li class="py-2 px-2">
+                        <li class="py-2 px-4">
                             <Link :href="route('articles.index')"
                                 >All Articles</Link
                             >
                         </li>
-                        <li class="py-2 px-2">
-                            <Link :href="route('articles.create')"
-                                >Create Articles</Link
-                            >
+
+                        <li class="py-2 px-4">
+                            <Link :href="route('articles.create')">
+                                <div class="flex gap-1 items-center">
+                                    <span> <Plus class="w-5" /></span>
+                                    <span> Create Articles </span>
+                                </div>
+                            </Link>
                         </li>
-                        <li class="py-2 px-2">
+
+                        <li class="py-2 px-4">
                             <Link :href="route('article_categories.index')"
                                 >Categories</Link
                             >
@@ -150,6 +171,7 @@ import {
     Images,
     LayoutPanelTop,
     Tickets,
+    Plus,
 } from "lucide-vue-next";
 
 const openMenu = ref(null);

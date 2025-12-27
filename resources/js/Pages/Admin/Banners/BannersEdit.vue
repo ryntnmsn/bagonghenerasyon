@@ -21,6 +21,7 @@ const form = useForm({
     start_date: props.banner.start_date,
     end_date: props.banner.end_date,
     status: props.banner.status,
+    link: props.banner.link,
     image: null,
     preview: props.banner.image_url,
 });
@@ -78,6 +79,13 @@ function handleImageChange(e) {
                     v-model="form.status"
                     :options="status"
                     :message="form.errors.status"
+                />
+
+                <InputText
+                    v-model="form.link"
+                    name="Redirection Link"
+                    type="text"
+                    :message="form.errors.link"
                 />
 
                 <!-- Upload Image -->

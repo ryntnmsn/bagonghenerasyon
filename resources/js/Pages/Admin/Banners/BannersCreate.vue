@@ -19,6 +19,7 @@ const form = useForm({
     start_date: "",
     end_date: "",
     status: 0,
+    link: "",
     image: null,
     preview: null,
 });
@@ -65,6 +66,13 @@ const change = (e) => {
                         class="flex-1"
                     />
                 </div>
+
+                <InputText
+                    v-model="form.link"
+                    name="Redirection Link"
+                    type="text"
+                    :message="form.errors.link"
+                />
 
                 <SelectOption
                     name="Status"

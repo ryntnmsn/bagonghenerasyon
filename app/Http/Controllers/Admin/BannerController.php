@@ -45,7 +45,9 @@ class BannerController extends Controller
             'start_date' => $validatedData['start_date'],
             'end_date' => $validatedData['end_date'],
             'status' => $validatedData['status'],
+            'link' => $request->link,
             'image' => $validatedData['image']
+            
         ]); 
 
         return redirect()->route('banners.index')->with('success', 'Banner created successfully');
@@ -82,6 +84,8 @@ class BannerController extends Controller
         $banner->start_date = $request->start_date;
         $banner->end_date = $request->end_date;
         $banner->status = $request->status;
+        $banner->link = $request->link;
+
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');
