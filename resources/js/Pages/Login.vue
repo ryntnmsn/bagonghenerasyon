@@ -4,7 +4,7 @@
         <div
             class="w-full max-w-[650px] px-15 py-5 bg-white h-auto flex flex-col justify-center"
         >
-            <h2 class="font-bold text-3xl text-red mb-2">Admin Login</h2>
+            <h2 class="font-bold text-3xl text-red mb-2">Login</h2>
             <SecondaryText
                 >Enter your credentials to login to your account.</SecondaryText
             >

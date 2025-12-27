@@ -1,8 +1,7 @@
 <script setup>
-import Title from "../../../Layouts/Components/Title.vue";
+import Title from "../../../Layouts/Components/Admin/Title.vue";
 import InputText from "../../../../components/InputText.vue";
 import { useForm } from "@inertiajs/vue3";
-import { computed, watch } from "vue";
 import SelectOption from "../../../../components/SelectOption.vue";
 import dayjs from "dayjs";
 

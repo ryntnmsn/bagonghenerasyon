@@ -1,5 +1,5 @@
 <script setup>
-import Title from "../../../Layouts/Components/Title.vue";
+import Title from "../../../Layouts/Components/Admin/Title.vue";
 import PaginationLinks from "../../../../components/PaginationLinks.vue";
 import TableEditButton from "../../../../components/TableEditButton.vue";
 import TableDeleteButton from "../../../../components/TableDeleteButton.vue";
@@ -30,7 +30,7 @@ watch(
     debounce(
         (q) =>
             router.get(
-                "/articles/categories",
+                "/admin/articles/categories",
                 { search: q },
                 { preserveState: true }
             ),

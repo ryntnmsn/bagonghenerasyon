@@ -1,7 +1,7 @@
 <script setup>
-import SideNav from "./Components/SideNav.vue";
-import Header from "./Components/Header.vue";
-import FlashMessage from "./Components/FlashMessage.vue";
+import SideNav from "./Components/Admin/SideNav.vue";
+import Header from "./Components/Admin/Header.vue";
+import FlashMessage from "./Components/Admin/FlashMessage.vue";
 </script>
 
 <template>

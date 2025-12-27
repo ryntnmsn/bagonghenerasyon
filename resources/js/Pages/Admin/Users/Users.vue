@@ -1,5 +1,5 @@
 <script setup>
-import Title from "../../../Layouts/Components/Title.vue";
+import Title from "../../../Layouts/Components/Admin/Title.vue";
 import PaginationLinks from "../../../../components/PaginationLinks.vue";
 import TableDeleteButton from "../../../../components/TableDeleteButton.vue";
 import TableEditButton from "../../../../components/TableEditButton.vue";

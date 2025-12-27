@@ -104,7 +104,7 @@
                     class="px-5 py-2"
                 >
                     <Link
-                        :href="route('users.index')"
+                        :href="route('banners.index')"
                         class="flex gap-2 flex-row items-center"
                         ><Images class="w-4" /><span>Banners</span></Link
                     >

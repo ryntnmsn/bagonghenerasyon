@@ -1,5 +1,5 @@
 <script setup>
-import Title from "../../../Layouts/Components/Title.vue";
+import Title from "../../../Layouts/Components/Admin/Title.vue";
 import { onMounted } from "vue";
 import { Chart } from "chart.js/auto";
 

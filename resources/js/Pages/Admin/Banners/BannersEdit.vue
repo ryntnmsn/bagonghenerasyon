@@ -1,49 +1,49 @@
 <script setup>
 import Title from "../../../Layouts/Components/Admin/Title.vue";
 import InputText from "../../../../components/InputText.vue";
-import Textarea from "../../../../components/Textarea.vue";
-import TiptapEditor from "../../../../components/TiptapEditor.vue";
 import { useForm } from "@inertiajs/vue3";
 import SelectOption from "../../../../components/SelectOption.vue";
 
-defineProps({
-    articleCategories: Array,
-    articleTypes: Array,
-    articleStatus: {
+const props = defineProps({
+    banner: Object,
+    status: {
         type: Array,
         default: () => [
-            { id: 0, title: "Draft" },
+            { id: 0, title: "Inactive" },
             { id: 1, title: "Active" },
         ],
     },
 });
 
 const form = useForm({
-    title: "",
-    description: "",
-    short_description: "",
-    article_category_id: "",
-    article_type_id: "",
-    status: 0,
+    _method: "put",
+    title: props.banner.title,
+    start_date: props.banner.start_date,
+    end_date: props.banner.end_date,
+    status: props.banner.status,
     image: null,
-    preview: null,
+    preview: props.banner.image_url,
 });
 
-function submit() {
-    form.post(route("articles.store"), {
-        onSuccess: () => form.reset(),
+const submit = () => {
+    form.post(route("banners.update", props.banner.id), {
+        preserveScroll: true,
+        onSuccess: () => {
+            form.reset("image");
+        },
     });
-}
+};
 
-const change = (e) => {
+// Handle file selection
+function handleImageChange(e) {
     form.image = e.target.files[0];
     form.preview = URL.createObjectURL(e.target.files[0]);
-};
+}
 </script>
 
 <template>
     <Head title="Create articles"></Head>
-    <Title>Create article</Title>
+    <Title>Edit banner</Title>
     <div class="p-10 bg-white mt-4 rounded-md w-[1200px]">
         <div>
             <form @submit.prevent="submit">
@@ -54,39 +54,29 @@ const change = (e) => {
                     :message="form.errors.title"
                 />
 
-                <TiptapEditor
-                    v-model="form.description"
-                    name="Description"
-                    :message="form.errors.description"
-                />
+                <div class="flex gap-5">
+                    <InputText
+                        v-model="form.start_date"
+                        name="Start date"
+                        type="date"
+                        :message="form.errors.start_date"
+                        class="flex-1"
+                    />
 
-                <Textarea
-                    v-model="form.short_description"
-                    name="Short Description"
-                    :message="form.errors.short_description"
-                />
-
-                <SelectOption
-                    name="Category"
-                    label="category"
-                    v-model="form.article_category_id"
-                    :options="articleCategories"
-                    :message="form.errors.article_category_id"
-                />
-
-                <SelectOption
-                    name="Type"
-                    label="type"
-                    v-model="form.article_type_id"
-                    :options="articleTypes"
-                    :message="form.errors.article_type_id"
-                />
+                    <InputText
+                        v-model="form.end_date"
+                        name="End date"
+                        type="date"
+                        :message="form.errors.end_date"
+                        class="flex-1"
+                    />
+                </div>
 
                 <SelectOption
                     name="Status"
                     label="status"
                     v-model="form.status"
-                    :options="articleStatus"
+                    :options="status"
                     :message="form.errors.status"
                 />
 
@@ -112,7 +102,12 @@ const change = (e) => {
                                 >Click to upload</span
                             ></label
                         >
-                        <input id="image" type="file" @input="change" hidden />
+                        <input
+                            id="image"
+                            type="file"
+                            @input="handleImageChange"
+                            hidden
+                        />
                     </div>
 
                     <small class="text-red mt-1 text-[12px]">
@@ -126,9 +121,9 @@ const change = (e) => {
                         class="btn"
                         :disabled="form.processing"
                     >
-                        Create
+                        Update
                     </button>
-                    <Link class="btn-secondary" :href="route('articles.index')"
+                    <Link class="btn-secondary" :href="route('banners.index')"
                         >Cancel</Link
                     >
                 </div>

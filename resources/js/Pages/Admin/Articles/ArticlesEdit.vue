@@ -1,5 +1,5 @@
 <script setup>
-import Title from "../../../Layouts/Components/Title.vue";
+import Title from "../../../Layouts/Components/Admin/Title.vue";
 import InputText from "../../../../components/InputText.vue";
 import Textarea from "../../../../components/Textarea.vue";
 import TiptapEditor from "../../../../components/TiptapEditor.vue";

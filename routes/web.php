@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\User\UserHomeController;
@@ -69,7 +70,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         Route::delete('/delete/{id}', 'destroy')->name('destroy');
     });
 
-   
-
+    //Banners
+    Route::controller(BannerController::class)->prefix('banners')->name('banners.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::put('/update/{id}', 'update')->name('update');
+        Route::delete('/delete/{id}', 'destroy')->name('destroy');
+    });
 
 });

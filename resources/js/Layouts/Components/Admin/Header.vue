@@ -33,7 +33,7 @@
 
 <script setup>
 import { usePage } from "@inertiajs/vue3";
-import InputText from "../../../components/InputText.vue";
+import InputText from "../../../../components/InputText.vue";
 import { Search } from "lucide-vue-next";
 const { props } = usePage();
 </script>

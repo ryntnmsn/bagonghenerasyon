@@ -5,13 +5,14 @@ import TableEditButton from "../../../../components/TableEditButton.vue";
 import TableDeleteButton from "../../../../components/TableDeleteButton.vue";
 import { Search } from "lucide-vue-next";
 import { router, useForm } from "@inertiajs/vue3";
+import dayjs from "dayjs";
 import { ref, watch } from "vue";
 import { debounce } from "lodash";
 
 const form = useForm({});
 
 const props = defineProps({
-    articles: Object,
+    banners: Object,
     searchTerm: String,
 });
 
@@ -19,7 +20,7 @@ const search = ref(props.searchTerm);
 
 function destroy(id) {
     if (confirm("Are you sure you want to delete this record?")) {
-        form.delete(route("articles.destroy", { id }), {
+        form.delete(route("banners.destroy", { id }), {
             preserveScroll: true,
         });
     }
@@ -30,7 +31,7 @@ watch(
     debounce(
         (q) =>
             router.get(
-                "/admin/articles/",
+                "/admin/banners",
                 { search: q },
                 { preserveState: true }
             ),
@@ -45,9 +46,9 @@ const truncate = (text, max = 50) => {
 </script>
 
 <template>
-    <Head title="Articles"></Head>
-    <Title>Articles</Title>
-    <div class="p-10 bg-white mt-4 rounded-md w-full">
+    <Head title="Banners"></Head>
+    <Title>Banners</Title>
+    <div class="p-10 bg-white mt-4 rounded-md w-[1300px]">
         <div class="flex items-center justify-between gap-20">
             <div class="flex-1">
                 <div class="relative flex items-center w-full">
@@ -65,64 +66,75 @@ const truncate = (text, max = 50) => {
                 </div>
             </div>
             <div class="flex flex-1 justify-end gap-3">
-                <Link :href="route('articles.index')" class="btn-secondary"
+                <Link :href="route('banners.index')" class="btn-secondary"
                     >Refresh</Link
                 >
-                <Link :href="route('articles.create')" class="btn"
+                <Link :href="route('banners.create')" class="btn"
                     >Create new</Link
                 >
             </div>
         </div>
-
         <div class="mt-4">
             <table>
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Category</th>
-                        <th>Type</th>
-                        <th>Created by</th>
-                        <th>Date created</th>
+                        <th>Start date</th>
+                        <th>End date</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="article in articles.data" :key="article.id">
-                        <td>{{ truncate(article.title, 70) }}</td>
-                        <td>{{ article.category?.title }}</td>
-                        <td>{{ article.type.title }}</td>
+                    <tr v-for="banner in banners.data" :key="banner.id">
                         <td>
-                            {{ article.user?.first_name }}
-                            {{ article.user?.last_name }}
+                            <div class="flex gap-3">
+                                <div>
+                                    <img
+                                        :src="
+                                            banner.image
+                                                ? `/storage/${banner.image}`
+                                                : '/storage/images/default-user.jpg'
+                                        "
+                                        alt=""
+                                        class="w-[50px] rounded-xs border border-gray-300"
+                                    />
+                                </div>
+                                <div>
+                                    {{ truncate(banner.title, 70) }}
+                                </div>
+                            </div>
                         </td>
                         <td>
                             {{
-                                new Date(
-                                    article.created_at
-                                ).toLocaleDateString()
+                                dayjs(banner.start_date).format("MMMM D, YYYY")
                             }}
+                        </td>
+                        <td>
+                            {{ dayjs(banner.end_date).format("MMMM D, YYYY") }}
                         </td>
                         <td>
                             <div
                                 :class="
-                                    article.status === 1
+                                    banner.status === 1
                                         ? 'text-green-500 bg-green-50'
                                         : 'text-rose-500 bg-rose-50'
                                 "
                                 class="rounded-full text-sm font-medium text-center py-1 w-[68px]"
                             >
-                                {{ article.status === 1 ? "Active" : "Draft" }}
+                                {{
+                                    banner.status === 1 ? "Active" : "Inactive"
+                                }}
                             </div>
                         </td>
                         <td>
                             <div class="flex gap-2 justify-end">
                                 <TableEditButton
-                                    :href="route('articles.edit', article.id)"
+                                    :href="route('banners.edit', banner.id)"
                                 />
 
                                 <TableDeleteButton
-                                    @click="destroy(article.id)"
+                                    @click="destroy(banner.id)"
                                 />
                             </div>
                         </td>
@@ -130,7 +142,7 @@ const truncate = (text, max = 50) => {
                 </tbody>
             </table>
             <div>
-                <PaginationLinks :paginator="articles" />
+                <PaginationLinks :paginator="banners" />
             </div>
         </div>
     </div>
