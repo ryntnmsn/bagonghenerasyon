@@ -129,6 +129,37 @@ class ArticleController extends Controller
     }
 
 
+
+    //Unique Slug generator
+    private function uniqueSlug(string $title): string
+    {
+        $slug = Str::slug($title);
+        $original = $slug;
+        $count = 1;
+
+        while (Article::where('slug', $slug)->exists()) {
+            $slug = $original . '-' . $count++;
+        }
+
+        return $slug;
+    }
+
+
+    public function replicate($id) {
+       $article = Article::with('category', 'type')->findOrFail($id);
+
+       $newArticle = $article->replicate();
+
+       $newArticle->title = $article->title . ' (Copy)';
+       $newArticle->slug = $this->uniqueSlug($newArticle->title);
+       $newArticle->status = 0;
+       
+       $newArticle->save();
+
+
+    }
+
+
     public function destroy($id) {
 
         $article = Article::findOrFail($id);

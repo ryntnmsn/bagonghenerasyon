@@ -11,6 +11,7 @@ class Banner extends Model
         'start_date',
         'end_date',
         'status',
+        'link',
         'image'
     ];
 }

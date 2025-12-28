@@ -13,7 +13,13 @@ use App\Http\Controllers\Admin\ArticleCategoryController;
 
 // sleep(1);
 //Home
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/article/{slug}', 'single_article')->name('single_article');
+    Route::get('/articles', 'articles')->name('articles');
+    Route::get('/articles/category/{slug}', 'single_article_category')->name('single_article_category');
+});
+
 
 //Auth
 Route::controller(AuthController::class)->group(function () {
@@ -55,6 +61,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
+        Route::post('/replicate/{id}', 'replicate')->name('replicate');
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::put('/update/{id}', 'update')->name('update');
         Route::delete('/destroy/{id}', 'destroy')->name('destroy');
@@ -79,10 +86,4 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         Route::put('/update/{id}', 'update')->name('update');
         Route::delete('/delete/{id}', 'destroy')->name('destroy');
     });
-});
-
-
-Route::get('/create-storage-link', function () {
-    Artisan::call('storage:link');
-    return 'Symlink Created';
 });

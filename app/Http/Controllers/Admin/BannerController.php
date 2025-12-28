@@ -33,6 +33,7 @@ class BannerController extends Controller
             'start_date' => ['required'],
             'end_date' => ['required'],
             'status' => ['required'],
+            'link' => ['nullable'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:512']
         ]);
 
@@ -45,7 +46,7 @@ class BannerController extends Controller
             'start_date' => $validatedData['start_date'],
             'end_date' => $validatedData['end_date'],
             'status' => $validatedData['status'],
-            'link' => $request->link,
+            'link' => $validatedData['link'],
             'image' => $validatedData['image']
             
         ]); 
@@ -75,6 +76,7 @@ class BannerController extends Controller
             'start_date' => ['required'],
             'end_date' => ['required'],
             'status' => ['required'],
+            'link' => ['nullable'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:512']
         ]);
 
@@ -85,7 +87,6 @@ class BannerController extends Controller
         $banner->end_date = $request->end_date;
         $banner->status = $request->status;
         $banner->link = $request->link;
-
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');

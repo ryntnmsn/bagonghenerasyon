@@ -31,7 +31,7 @@
                             </li>
                             <li>
                                 <Link
-                                    href="/"
+                                    :href="route('articles')"
                                     class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-600 ease-in-out"
                                     >NEWS</Link
                                 >

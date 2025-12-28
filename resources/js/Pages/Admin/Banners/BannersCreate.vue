@@ -18,8 +18,8 @@ const form = useForm({
     title: "",
     start_date: "",
     end_date: "",
-    status: 0,
     link: "",
+    status: 0,
     image: null,
     preview: null,
 });

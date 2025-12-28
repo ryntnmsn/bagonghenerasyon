@@ -2,6 +2,7 @@
 import Title from "../../../Layouts/Components/Admin/Title.vue";
 import PaginationLinks from "../../../../components/PaginationLinks.vue";
 import TableEditButton from "../../../../components/TableEditButton.vue";
+import TableReplicateButton from "../../../../components/TableReplicateButton.vue";
 import TableDeleteButton from "../../../../components/TableDeleteButton.vue";
 import { Search } from "lucide-vue-next";
 import { router, useForm } from "@inertiajs/vue3";
@@ -24,6 +25,10 @@ function destroy(id) {
         });
     }
 }
+
+const replicate = (article) => {
+    router.post(route("articles.replicate", article.id));
+};
 
 watch(
     search,
@@ -117,6 +122,10 @@ const truncate = (text, max = 50) => {
                         </td>
                         <td>
                             <div class="flex gap-2 justify-end">
+                                <TableReplicateButton
+                                    @click="replicate(article)"
+                                />
+
                                 <TableEditButton
                                     :href="route('articles.edit', article.id)"
                                 />

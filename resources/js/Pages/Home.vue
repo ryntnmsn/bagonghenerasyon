@@ -57,7 +57,7 @@ const props = defineProps({
         class="w-full max-w-[1400px] mx-auto"
     >
         <!-- Latest news -->
-        <div class="mt-20">
+        <div class="mt-20 px-4">
             <div class="flex">
                 <div class="flex-auto">
                     <SectionTitle name="Latest News" />
@@ -70,15 +70,15 @@ const props = defineProps({
                 <div
                     v-for="article in props.latestArticles"
                     :key="article.id"
-                    class="bg-white overflow-hidden p-5 relative shadow"
+                    class="bg-white overflow-hidden relative shadow rounded-xl"
                 >
                     <Link
-                        href="#"
+                        :href="route('single_article', article.slug)"
                         class="absolute top-0 left-0 right-0 bottom-0 z-30"
                     />
                     <div class="relative">
                         <p
-                            class="absolute bottom-0 bg-white px-3 py-1 text-gray-800 m-3"
+                            class="absolute bottom-0 bg-white px-3 py-1 text-gray-800 m-5 rounded-md"
                         >
                             {{ article.category?.title }}
                         </p>
@@ -88,7 +88,7 @@ const props = defineProps({
                             class="w-full object-cover"
                         />
                     </div>
-                    <div class="mt-4 flex flex-col gap-3">
+                    <div class="mt-4 flex flex-col gap-3 px-5 pb-5">
                         <div>
                             <p
                                 class="text-sm text-gray-400 mb-1 flex items-center gap-1"
@@ -120,7 +120,10 @@ const props = defineProps({
         </div>
 
         <!-- Top categories -->
-        <div v-if="articleCategories && articleCategories.length" class="mt-20">
+        <div
+            v-if="articleCategories && articleCategories.length"
+            class="mt-20 px-4"
+        >
             <div class="flex">
                 <div class="flex-auto">
                     <SectionTitle name="Top Categories" />
@@ -133,9 +136,15 @@ const props = defineProps({
                 <div
                     v-for="articleCategory in props.articleCategories"
                     :key="articleCategory.id"
-                    class="bg-white shadow"
+                    class="bg-white shadow rounded-xl"
                 >
                     <Link
+                        :href="
+                            route(
+                                'single_article_category',
+                                articleCategory.slug
+                            )
+                        "
                         class="text-gray-800 font-medium text-lg text-center block p-5"
                         >{{ articleCategory.title }} ({{
                             articleCategory.articles.length
@@ -147,17 +156,17 @@ const props = defineProps({
     </div>
 
     <!-- Mission Vision Values -->
-    <div class="mt-20">
-        <div class="w-full max-w-[1400px] mx-auto overflow-hidden relative">
+    <div class="mt-20 px-4 w-full max-w-[1400px] mx-auto">
+        <div class="overflow-hidden relative rounded-3xl">
             <img
                 :src="'/storage/images/Hero_bg_image.jpg'"
                 alt=""
-                class="object-cover"
+                class="object-cover w-full"
             />
             <div
-                class="absolute left-0 top-0 m-14 grid grid-cols-2 w-1/2 gap-6"
+                class="absolute left-0 top-0 mx-10 my-5 grid grid-cols-2 w-1/2 gap-6"
             >
-                <div class="bg-[#af000042] p-5 flex flex-col gap-2">
+                <div class="bg-[#af000042] p-5 flex flex-col gap-2 rounded-xl">
                     <h2 class="text-amber-500 font-bold text-4xl">Mission</h2>
                     <p class="text-[#ffe0e1]">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -169,7 +178,7 @@ const props = defineProps({
                         fugiat nulla pariatur.
                     </p>
                 </div>
-                <div class="bg-[#af000042] p-5 flex flex-col gap-2">
+                <div class="bg-[#af000042] p-5 flex flex-col gap-2 rounded-xl">
                     <h2 class="text-amber-500 font-bold text-4xl">Vision</h2>
                     <p class="text-[#ffe0e1]">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -181,7 +190,7 @@ const props = defineProps({
                         fugiat nulla pariatur.
                     </p>
                 </div>
-                <div class="bg-[#af000042] p-5 flex flex-col gap-2">
+                <div class="bg-[#af000042] p-5 flex flex-col gap-2 rounded-xl">
                     <h2 class="text-amber-500 font-bold text-4xl">Values</h2>
                     <p class="text-[#ffe0e1]">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -215,15 +224,15 @@ const props = defineProps({
                 <div
                     v-for="article in props.featuredArticles"
                     :key="article.id"
-                    class="bg-white overflow-hidden p-5 relative shadow"
+                    class="bg-white overflow-hidden relative shadow rounded-xl"
                 >
                     <Link
-                        href="#"
+                        :href="route('single_article', article.slug)"
                         class="absolute top-0 left-0 right-0 bottom-0 z-30"
                     />
                     <div class="relative">
                         <p
-                            class="absolute bottom-0 bg-white px-3 py-1 text-gray-800 m-3"
+                            class="absolute bottom-0 bg-white px-3 py-1 text-gray-800 m-5 rounded-md"
                         >
                             {{ article.category?.title }}
                         </p>
@@ -233,7 +242,7 @@ const props = defineProps({
                             class="w-full object-cover"
                         />
                     </div>
-                    <div class="mt-4 flex flex-col gap-3">
+                    <div class="mt-4 flex flex-col gap-3 px-5 pb-5">
                         <div>
                             <p
                                 class="text-sm text-gray-400 mb-1 flex items-center gap-1"
