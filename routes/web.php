@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\ArticleCategoryController;
@@ -78,5 +79,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         Route::put('/update/{id}', 'update')->name('update');
         Route::delete('/delete/{id}', 'destroy')->name('destroy');
     });
+});
 
+
+Route::get('/create-storage-link', function () {
+    Artisan::call('storage:link');
+    return 'Symlink Created';
 });
