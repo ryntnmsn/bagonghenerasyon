@@ -39,6 +39,24 @@ html {
     background-color: #f2efef;
 }
 
+.fe-btn {
+    background: linear-gradient(
+        90deg,
+        rgba(224, 81, 81, 1) 0%,
+        rgba(255, 148, 48, 1) 50%,
+        rgb(248, 74, 74) 75%,
+        rgba(255, 123, 0, 1) 100%
+    );
+    background-size: 200% 200%;
+    background-position: left center;
+
+    transition: background-position 0.5s ease-in-out;
+}
+
+.fe-btn:hover {
+    background-position: right center;
+}
+
 button.btn-secondary,
 a.btn-secondary {
     color: #ff0707;

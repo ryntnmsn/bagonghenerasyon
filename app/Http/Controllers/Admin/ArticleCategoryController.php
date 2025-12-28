@@ -71,7 +71,7 @@ class ArticleCategoryController extends Controller
     public function destroy($id) {
         $articleCategories = ArticleCategory::findOrFail($id);
         
-        $articleCategories->articles()->delete();
+        $articleCategories->delete();
 
         return redirect()->route('article_categories.index')->with('success', 'Article category deleted successfully.');
     }

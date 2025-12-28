@@ -5,15 +5,14 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ArticleController;
-use App\Http\Controllers\User\UserHomeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\ArticleCategoryController;
 
 // sleep(1);
 //Home
-Route::get('/', [UserHomeController::class, 'index'])->name('home');
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 //Auth
 Route::controller(AuthController::class)->group(function () {
