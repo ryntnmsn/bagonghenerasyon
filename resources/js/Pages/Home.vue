@@ -18,7 +18,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="banner-slider">
+    <div v-if="banners && banners.length" class="banner-slider">
         <Carousel :autoplay="6000" :wrap-around="true">
             <Slide v-for="banner in props.banners" :key="banner.id">
                 <div class="carousel__item w-full relative">
@@ -52,7 +52,10 @@ const props = defineProps({
         </Carousel>
     </div>
 
-    <div class="w-full max-w-[1400px] mx-auto">
+    <div
+        v-if="latestArticles && latestArticles.length"
+        class="w-full max-w-[1400px] mx-auto"
+    >
         <!-- Latest news -->
         <div class="mt-20">
             <div class="flex">
@@ -117,7 +120,7 @@ const props = defineProps({
         </div>
 
         <!-- Top categories -->
-        <div class="mt-20">
+        <div v-if="articleCategories && articleCategories.length" class="mt-20">
             <div class="flex">
                 <div class="flex-auto">
                     <SectionTitle name="Top Categories" />
@@ -194,7 +197,10 @@ const props = defineProps({
         </div>
     </div>
 
-    <div class="w-full max-w-[1400px] mx-auto">
+    <div
+        v-if="featuredArticles && featuredArticles.length"
+        class="w-full max-w-[1400px] mx-auto"
+    >
         <!-- Featured Articles -->
         <div class="mt-20">
             <div class="flex">
