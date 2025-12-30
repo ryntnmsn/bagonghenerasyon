@@ -1,6 +1,7 @@
 <script setup>
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import Button from "../../components/FrontEnd/Button.vue";
+import InputText from "../../components/InputText.vue";
 import SectionTitle from "../../components/FrontEnd/SectionTitle.vue";
 import SeeAllButton from "../../components/FrontEnd/SeeAllButton.vue";
 import ReadMoreButton from "../../components/FrontEnd/ReadMoreButton.vue";
@@ -26,7 +27,7 @@ const props = defineProps({
                         <div
                             class="flex flex-col w-full max-w-[1400px] z-10 mx-auto px-4 h-full justify-center"
                         >
-                            <div class="w-1/2">
+                            <div class="w-full md:w-1/2">
                                 <h1
                                     class="text-6xl text-white font-medium leading-18"
                                 >
@@ -211,7 +212,7 @@ const props = defineProps({
         class="w-full max-w-[1400px] mx-auto"
     >
         <!-- Featured Articles -->
-        <div class="mt-20">
+        <div class="mt-20 px-4">
             <div class="flex">
                 <div class="flex-auto">
                     <SectionTitle name="Featured Articles" />
@@ -270,6 +271,37 @@ const props = defineProps({
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white border-b border-gray-200 mt-20 px-4 py-15">
+        <div class="flex items-center justify-center flex-col gap-4">
+            <img
+                :src="`/storage/images/email_image.png`"
+                alt="Bagong Henerasyon Partylist"
+                class="w-15"
+            />
+            <div class="flex justify-center flex-col text-center">
+                <h2 class="text-3xl text-gray-700 font-medium">
+                    Subscribe to our newsletter
+                </h2>
+                <p class="text-slate-500">
+                    Stay in the loop! Subscribe to our newsletter for updates,
+                    tips, and announcements.
+                </p>
+            </div>
+            <div class="mt-3">
+                <form action="">
+                    <div class="flex">
+                        <input
+                            placeholder="Enter email here"
+                            class="border-2 outline-none text-gray-800 border-gray-100 bg-gray-50 p-2 text-base rounded-l-md duration-400 ease-in-out focus:border-red ring-0 focus:bg-white w-lg"
+                        /><button class="btn !rounded-l-none !border-0">
+                            SUBSCRIBE
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

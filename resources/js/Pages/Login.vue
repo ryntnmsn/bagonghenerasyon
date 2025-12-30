@@ -1,9 +1,9 @@
 <template>
     <Head title="Login" />
-    <AuthLayout>
-        <div
-            class="w-full max-w-[650px] px-15 py-5 bg-white h-auto flex flex-col justify-center"
-        >
+    <div
+        class="w-full max-w-[650px] mx-auto my-20 px-15 py-10 bg-white rounded-lg"
+    >
+        <div class="flex flex-col justify-center">
             <h2 class="font-bold text-3xl text-red mb-2">Login</h2>
             <SecondaryText
                 >Enter your credentials to login to your account.</SecondaryText
@@ -39,7 +39,7 @@
                 <button class="btn" :disabled="form.processing">Submit</button>
             </form>
         </div>
-    </AuthLayout>
+    </div>
 </template>
 
 <script setup>
@@ -49,7 +49,7 @@ import SecondaryText from "../../components/SecondaryText.vue";
 import InputText from "../../components/InputText.vue";
 import ButtonPrimary from "../../components/ButtonPrimary.vue";
 
-defineOptions({ layout: AuthLayout });
+// defineOptions({ layout: AuthLayout });
 
 const form = useForm({
     username: null,

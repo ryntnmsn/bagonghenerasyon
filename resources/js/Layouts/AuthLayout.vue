@@ -1,9 +1,7 @@
-<template>
-    <div class="w-full h-screen bg-slate-50 flex justify-center align-middle">
-        <slot></slot>
-    </div>
-</template>
+<template></template>
 
-<script setup></script>
+<script>
+export default {};
+</script>
 
 <style></style>

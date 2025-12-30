@@ -1,13 +1,16 @@
 <template>
     <header class="w-full">
         <div class="bg-red w-full">
-            <div class="w-full max-w-[1400px] mx-auto px-4 py-1">
-                <p class="text-white text-[10px]">
+            <div class="w-full max-w-[1400px] mx-auto px-4 py-1 flex">
+                <p class="text-white text-[10px] flex-1">
                     I-ANGAT LAHAT NG PAMILYA SOLO PARENTS AT IBA PA!
+                </p>
+                <p class="text-white text-[10px] flex-1 flex justify-end">
+                    Current Date: {{ formattedDate }}
                 </p>
             </div>
         </div>
-        <div class="w-full bg-white">
+        <div class="w-full bg-white border-b border-gray-200 shadow">
             <div class="max-w-[1400px] mx-auto px-4 py-4">
                 <div class="flex justify-between items-center h-auto">
                     <!-- Logo -->
@@ -45,7 +48,7 @@
                             </li>
                             <li>
                                 <Link
-                                    href="/"
+                                    :href="route('about')"
                                     class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-600 ease-in-out"
                                     >ABOUT</Link
                                 >
@@ -59,9 +62,10 @@
                                     />
                                 </li>
                                 <li>
-                                    <CircleUserRound
-                                        class="text-gray-700 w-6 h-6 cursor-pointer hover:text-red duration-600 ease-in-out"
-                                    />
+                                    <Link :href="route('login')">
+                                        <CircleUserRound
+                                            class="text-gray-700 w-6 h-6 cursor-pointer hover:text-red duration-600 ease-in-out"
+                                    /></Link>
                                 </li>
                             </ul>
                         </div>
@@ -121,7 +125,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { Link } from "@inertiajs/vue3";
 import { Search, CircleUserRound } from "lucide-vue-next";
 
@@ -130,6 +134,14 @@ const mobileMenuOpen = ref(false);
 const toggleMenu = () => {
     mobileMenuOpen.value = !mobileMenuOpen.value;
 };
+
+const formattedDate = computed(() => {
+    const today = new Date();
+    return new Intl.DateTimeFormat("en-GB", {
+        dateStyle: "full",
+        timeStyle: "long",
+    }).format(today);
+});
 </script>
 
 <style></style>

@@ -18,6 +18,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/article/{slug}', 'single_article')->name('single_article');
     Route::get('/articles', 'articles')->name('articles');
     Route::get('/articles/category/{slug}', 'single_article_category')->name('single_article_category');
+    Route::get('/about', 'about')->name('about');
 });
 
 

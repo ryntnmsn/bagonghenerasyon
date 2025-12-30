@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Inertia\Inertia;
+use App\Models\ArticleCategory;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Inertia::share('articleCategories', function () {
+        return ArticleCategory::select('id', 'title', 'slug')
+            ->orderBy('title')
+            ->get();
+    });
     }
 }
