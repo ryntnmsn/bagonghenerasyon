@@ -104,26 +104,26 @@
                 class="md:hidden bg-white border-t border-gray-300"
             >
                 <nav class="flex flex-col px-4 py-5 space-y-5">
-                    <Link href="/" class="text-gray-700" @click="toggleMenu"
+                    <Link
+                        :href="route('home')"
+                        class="text-gray-700"
+                        @click="toggleMenu"
                         >Home</Link
                     >
                     <Link
-                        href="/about"
+                        :href="route('articles')"
+                        class="text-gray-700"
+                        @click="toggleMenu"
+                        >Articles</Link
+                    >
+                    <Link href="#" class="text-gray-700" @click="toggleMenu"
+                        >Media</Link
+                    >
+                    <Link
+                        :href="route('about')"
                         class="text-gray-700"
                         @click="toggleMenu"
                         >About</Link
-                    >
-                    <Link
-                        href="/services"
-                        class="text-gray-700"
-                        @click="toggleMenu"
-                        >Services</Link
-                    >
-                    <Link
-                        href="/contact"
-                        class="text-gray-700"
-                        @click="toggleMenu"
-                        >Contact</Link
                     >
                 </nav>
             </div>

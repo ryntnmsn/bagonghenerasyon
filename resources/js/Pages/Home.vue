@@ -19,6 +19,7 @@ const props = defineProps({
 </script>
 
 <template>
+    <Head title="Home"></Head>
     <div v-if="banners && banners.length" class="banner-slider">
         <Carousel :autoplay="6000" :wrap-around="true">
             <Slide v-for="banner in props.banners" :key="banner.id">
@@ -62,21 +63,17 @@ const props = defineProps({
     >
         <!-- Latest news -->
         <div class="mt-10 md:mt-20 px-4">
-            <div class="flex">
-                <div class="flex-auto">
-                    <SectionTitle name="Latest News" />
-                </div>
-                <div class="flex-end flex justify-center">
-                    <SeeAllButton name="See All" />
-                </div>
+            <div class="flex justify-between items-center">
+                <SectionTitle name="Latest News" />
+                <SeeAllButton :href="route('articles')" name="See All" />
             </div>
-            <div
-                class="mt-4 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible"
-            >
+
+            <!-- Articles container -->
+            <div class="mt-4 grid grid-cols-1 gap-6 md:grid-cols-3">
                 <div
                     v-for="article in props.latestArticles"
                     :key="article.id"
-                    class="bg-white overflow-hidden relative shadow rounded-xl snap-start min-w-[48%] md:min-w-0"
+                    class="bg-white overflow-hidden relative shadow rounded-xl"
                 >
                     <Link
                         :href="route('single_article', article.slug)"
@@ -130,39 +127,36 @@ const props = defineProps({
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Top categories -->
-        <div
-            v-if="articleCategories && articleCategories.length"
-            class="mt-10 md:mt-20 px-4"
-        >
-            <div class="flex">
-                <div class="flex-auto">
-                    <SectionTitle name="Top Categories" />
-                </div>
-                <div class="flex-end flex justify-center">
-                    <SeeAllButton name="See All" />
-                </div>
+    <!-- Top categories -->
+    <div
+        v-if="articleCategories && articleCategories.length"
+        class="mt-10 md:mt-20 px-4 w-full max-w-[1400px] mx-auto"
+    >
+        <div class="flex">
+            <div class="flex-auto">
+                <SectionTitle name="Top Categories" />
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 mt-4">
-                <div
-                    v-for="articleCategory in props.articleCategories"
-                    :key="articleCategory.id"
-                    class="bg-white shadow rounded-xl"
-                >
-                    <Link
-                        :href="
-                            route(
-                                'single_article_category',
-                                articleCategory.slug
-                            )
-                        "
-                        class="text-gray-800 font-medium text-lg text-center block p-5"
-                        >{{ articleCategory.title }} ({{
-                            articleCategory.articles.length
-                        }})
-                    </Link>
-                </div>
+            <!-- <div class="flex-end flex justify-center">
+                <SeeAllButton name="See All" />
+            </div> -->
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-4">
+            <div
+                v-for="articleCategory in props.articleCategories"
+                :key="articleCategory.id"
+                class="bg-white shadow rounded-xl"
+            >
+                <Link
+                    :href="
+                        route('single_article_category', articleCategory.slug)
+                    "
+                    class="text-gray-800 font-medium text-lg text-center block p-5"
+                    >{{ articleCategory.title }} ({{
+                        articleCategory.articles.length
+                    }})
+                </Link>
             </div>
         </div>
     </div>
@@ -220,22 +214,17 @@ const props = defineProps({
         v-if="featuredArticles && featuredArticles.length"
         class="w-full max-w-[1400px] mx-auto px-4 mt-10 md:mt-20"
     >
-        <div class="flex">
-            <div class="flex-auto">
-                <SectionTitle name="Featured News" />
-            </div>
-            <div class="flex-end flex justify-center">
-                <SeeAllButton name="See All" />
-            </div>
+        <div class="flex justify-between items-center">
+            <SectionTitle name="Featured News" />
+            <SeeAllButton :href="route('articles')" name="See All" />
         </div>
+
         <!-- Featured Articles -->
-        <div
-            class="mt-4 flex gap-6 overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-4 lg:overflow-visible"
-        >
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div
                 v-for="article in props.featuredArticles"
                 :key="article.id"
-                class="bg-white overflow-hidden relative shadow rounded-xl snap-start min-w-[48%] sm:min-w-[32%] lg:min-w-0"
+                class="bg-white overflow-hidden relative shadow rounded-xl"
             >
                 <Link
                     :href="route('single_article', article.slug)"
@@ -262,13 +251,9 @@ const props = defineProps({
                             class="text-sm text-gray-400 mb-1 flex items-center gap-1"
                         >
                             <Clock class="w-3.5" />
-                            <span>
-                                {{
-                                    dayjs(article.created_at).format(
-                                        "MMMM D, YYYY"
-                                    )
-                                }}
-                            </span>
+                            <span>{{
+                                dayjs(article.created_at).format("MMMM D, YYYY")
+                            }}</span>
                         </p>
 
                         <h2
@@ -306,13 +291,17 @@ const props = defineProps({
                     tips, and announcements.
                 </p>
             </div>
-            <div class="mt-3">
-                <form action="">
-                    <div class="flex">
+            <div class="mt-3 w-full max-w-lg">
+                <form action="" class="w-full">
+                    <div
+                        class="w-full flex md:flex-row flex-col md:gap-0 gap-3"
+                    >
                         <input
                             placeholder="Enter email here"
-                            class="border-2 outline-none text-gray-800 border-gray-100 bg-gray-50 p-2 text-base rounded-l-md duration-400 ease-in-out focus:border-red ring-0 focus:bg-white w-full md:w-lg"
-                        /><button class="btn !rounded-l-none !border-0">
+                            class="text-center md:text-left border-2 outline-none text-gray-800 border-gray-100 bg-gray-50 p-2 text-base rounded-l-md duration-400 ease-in-out focus:border-red ring-0 focus:bg-white w-full md:w-lg"
+                        /><button
+                            class="btn md:!rounded-l-none !border-0 flex justify-center"
+                        >
                             SUBSCRIBE
                         </button>
                     </div>

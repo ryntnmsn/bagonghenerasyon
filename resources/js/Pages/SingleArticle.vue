@@ -14,7 +14,8 @@ const articleTitle = props.article.title;
 </script>
 
 <template>
-    <div class="w-full max-w-[1400px] mx-auto px-4 mt-4 xl:mt-10">
+    <Head :title="article.title"></Head>
+    <div class="w-full max-w-[1400px] mx-auto px-4 mt-4 xl:mt-10 mb-10">
         <div class="xl:flex flex-none gap-8">
             <div class="w-full flex flex-col gap-5">
                 <div>

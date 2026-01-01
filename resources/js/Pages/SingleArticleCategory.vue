@@ -1,6 +1,7 @@
 <template>
-    <div class="w-full max-w-[1400px] mx-auto mt-10">
-        <div class="px-4">
+    <Head :title="category.title"></Head>
+    <div class="w-full max-w-[1400px] mx-auto px-4 mt-4 xl:mt-10 mb-10">
+        <div>
             <SectionTitle :name="`Category: ${category.title}`" />
             <div class="grid grid-cols-4 gap-6 mt-6">
                 <div

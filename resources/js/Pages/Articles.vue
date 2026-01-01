@@ -1,4 +1,5 @@
 <template>
+    <Head title="Articles"></Head>
     <div class="w-full max-w-[1400px] mx-auto mt-5 md:mt-10 mb-10">
         <div class="px-4">
             <SectionTitle name="Articles" />

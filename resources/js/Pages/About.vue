@@ -1,4 +1,5 @@
 <template>
+    <Head title="About"></Head>
     <!-- Header -->
     <section class="bg-white">
         <div class="max-w-[1400px] mx-auto px-6 py-16 text-center">

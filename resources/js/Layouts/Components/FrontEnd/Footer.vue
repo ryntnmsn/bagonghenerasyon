@@ -48,6 +48,7 @@
                         <ul class="flex flex-col md:mt-3 mt-0">
                             <li class="mt-2">
                                 <Link
+                                    :href="route('home')"
                                     class="text-gray-700 hover:text-red hover:underline"
                                 >
                                     Home
@@ -55,6 +56,7 @@
                             </li>
                             <li class="mt-2">
                                 <Link
+                                    :href="route('articles')"
                                     class="text-gray-700 hover:text-red hover:underline"
                                 >
                                     News
@@ -69,6 +71,7 @@
                             </li>
                             <li class="mt-2">
                                 <Link
+                                    :href="route('about')"
                                     class="text-gray-700 hover:text-red hover:underline"
                                 >
                                     About us
@@ -76,6 +79,7 @@
                             </li>
                             <li class="mt-2">
                                 <Link
+                                    :href="route('login')"
                                     class="text-gray-700 hover:text-red hover:underline"
                                 >
                                     Account
