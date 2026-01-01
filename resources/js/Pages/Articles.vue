@@ -1,9 +1,11 @@
 <template>
-    <div class="w-full max-w-[1400px] mx-auto mt-10">
+    <div class="w-full max-w-[1400px] mx-auto mt-5 md:mt-10 mb-10">
         <div class="px-4">
             <SectionTitle name="Articles" />
 
-            <div class="grid grid-cols-4 gap-6 mt-6">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-5"
+            >
                 <div
                     v-for="article in articles.data"
                     :key="article.id"

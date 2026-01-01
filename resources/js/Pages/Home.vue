@@ -29,19 +29,22 @@ const props = defineProps({
                         >
                             <div class="w-full md:w-1/2">
                                 <h1
-                                    class="text-6xl text-white font-medium leading-18"
+                                    class="text-4xl md:text-6xl text-white font-medium leading-10 md:leading-18 text-center md:text-left"
                                 >
                                     {{ banner.title }}
                                 </h1>
                             </div>
-                            <div v-if="banner.link != null">
+                            <div
+                                v-if="banner.link != null"
+                                class="text-center md:text-left"
+                            >
                                 <Button name="Learn More" />
                             </div>
                         </div>
                     </div>
                     <img
                         :src="`/storage/${banner.image}`"
-                        class="slider-image"
+                        class="slider-image object-right"
                     />
                 </div>
             </Slide>
@@ -58,7 +61,7 @@ const props = defineProps({
         class="w-full max-w-[1400px] mx-auto"
     >
         <!-- Latest news -->
-        <div class="mt-20 px-4">
+        <div class="mt-10 md:mt-20 px-4">
             <div class="flex">
                 <div class="flex-auto">
                     <SectionTitle name="Latest News" />
@@ -67,34 +70,39 @@ const props = defineProps({
                     <SeeAllButton name="See All" />
                 </div>
             </div>
-            <div class="grid grid-cols-3 gap-6 mt-6">
+            <div
+                class="mt-4 flex gap-6 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible"
+            >
                 <div
                     v-for="article in props.latestArticles"
                     :key="article.id"
-                    class="bg-white overflow-hidden relative shadow rounded-xl"
+                    class="bg-white overflow-hidden relative shadow rounded-xl snap-start min-w-[48%] md:min-w-0"
                 >
                     <Link
                         :href="route('single_article', article.slug)"
-                        class="absolute top-0 left-0 right-0 bottom-0 z-30"
+                        class="absolute inset-0 z-30"
                     />
+
                     <div class="relative">
                         <p
                             class="absolute bottom-0 bg-white px-3 py-1 text-gray-800 m-5 rounded-md"
                         >
                             {{ article.category?.title }}
                         </p>
+
                         <img
                             :src="`/storage/${article.image}`"
                             alt=""
                             class="w-full object-cover"
                         />
                     </div>
+
                     <div class="mt-4 flex flex-col gap-3 px-5 pb-5">
                         <div>
                             <p
                                 class="text-sm text-gray-400 mb-1 flex items-center gap-1"
                             >
-                                <span> <Clock class="w-3.5" /> </span>
+                                <Clock class="w-3.5" />
                                 <span>
                                     {{
                                         dayjs(article.created_at).format(
@@ -103,15 +111,18 @@ const props = defineProps({
                                     }}
                                 </span>
                             </p>
-                            <h2 class="font-medium text-xl text-gray-800">
+
+                            <h2
+                                class="font-medium text-lg md:text-xl text-gray-800"
+                            >
                                 {{ article.title }}
                             </h2>
                         </div>
-                        <div>
-                            <p class="text-gray-500 text-base">
-                                {{ article.short_description }}
-                            </p>
-                        </div>
+
+                        <p class="text-gray-500 text-base">
+                            {{ article.short_description }}
+                        </p>
+
                         <div class="border-t border-gray-200 pt-2">
                             <ReadMoreButton name="Read more" />
                         </div>
@@ -123,7 +134,7 @@ const props = defineProps({
         <!-- Top categories -->
         <div
             v-if="articleCategories && articleCategories.length"
-            class="mt-20 px-4"
+            class="mt-10 md:mt-20 px-4"
         >
             <div class="flex">
                 <div class="flex-auto">
@@ -133,7 +144,7 @@ const props = defineProps({
                     <SeeAllButton name="See All" />
                 </div>
             </div>
-            <div class="grid grid-cols-5 gap-6 mt-6">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 mt-4">
                 <div
                     v-for="articleCategory in props.articleCategories"
                     :key="articleCategory.id"
@@ -157,15 +168,13 @@ const props = defineProps({
     </div>
 
     <!-- Mission Vision Values -->
-    <div class="mt-20 px-4 w-full max-w-[1400px] mx-auto">
-        <div class="overflow-hidden relative rounded-3xl">
-            <img
-                :src="'/storage/images/Hero_bg_image.jpg'"
-                alt=""
-                class="object-cover w-full"
-            />
+    <div class="mt-10 md:mt-20 px-4 w-full max-w-[1400px] mx-auto">
+        <div
+            class="relative rounded-3xl bg-cover bg-center"
+            :style="`background-image: url('/storage/images/Hero_bg_image.jpg')`"
+        >
             <div
-                class="absolute left-0 top-0 mx-10 my-5 grid grid-cols-2 w-1/2 gap-6"
+                class="grid grid-cols-1 md:grid-cols-2 w-full xl:w-1/2 gap-6 p-10"
             >
                 <div class="bg-[#af000042] p-5 flex flex-col gap-2 rounded-xl">
                     <h2 class="text-amber-500 font-bold text-4xl">Mission</h2>
@@ -209,66 +218,72 @@ const props = defineProps({
 
     <div
         v-if="featuredArticles && featuredArticles.length"
-        class="w-full max-w-[1400px] mx-auto"
+        class="w-full max-w-[1400px] mx-auto px-4 mt-10 md:mt-20"
     >
-        <!-- Featured Articles -->
-        <div class="mt-20 px-4">
-            <div class="flex">
-                <div class="flex-auto">
-                    <SectionTitle name="Featured Articles" />
-                </div>
-                <div class="flex-end flex justify-center">
-                    <SeeAllButton name="See All" />
-                </div>
+        <div class="flex">
+            <div class="flex-auto">
+                <SectionTitle name="Featured News" />
             </div>
-            <div class="grid grid-cols-4 gap-6 mt-6">
-                <div
-                    v-for="article in props.featuredArticles"
-                    :key="article.id"
-                    class="bg-white overflow-hidden relative shadow rounded-xl"
-                >
-                    <Link
-                        :href="route('single_article', article.slug)"
-                        class="absolute top-0 left-0 right-0 bottom-0 z-30"
+            <div class="flex-end flex justify-center">
+                <SeeAllButton name="See All" />
+            </div>
+        </div>
+        <!-- Featured Articles -->
+        <div
+            class="mt-4 flex gap-6 overflow-x-auto snap-x snap-mandatory lg:grid lg:grid-cols-4 lg:overflow-visible"
+        >
+            <div
+                v-for="article in props.featuredArticles"
+                :key="article.id"
+                class="bg-white overflow-hidden relative shadow rounded-xl snap-start min-w-[48%] sm:min-w-[32%] lg:min-w-0"
+            >
+                <Link
+                    :href="route('single_article', article.slug)"
+                    class="absolute inset-0 z-30"
+                />
+
+                <div class="relative">
+                    <p
+                        class="absolute bottom-0 bg-white px-3 py-1 text-gray-800 m-5 rounded-md"
+                    >
+                        {{ article.category?.title }}
+                    </p>
+
+                    <img
+                        :src="`/storage/${article.image}`"
+                        alt=""
+                        class="w-full object-cover"
                     />
-                    <div class="relative">
+                </div>
+
+                <div class="mt-4 flex flex-col gap-3 px-5 pb-5">
+                    <div>
                         <p
-                            class="absolute bottom-0 bg-white px-3 py-1 text-gray-800 m-5 rounded-md"
+                            class="text-sm text-gray-400 mb-1 flex items-center gap-1"
                         >
-                            {{ article.category?.title }}
+                            <Clock class="w-3.5" />
+                            <span>
+                                {{
+                                    dayjs(article.created_at).format(
+                                        "MMMM D, YYYY"
+                                    )
+                                }}
+                            </span>
                         </p>
-                        <img
-                            :src="`/storage/${article.image}`"
-                            alt=""
-                            class="w-full object-cover"
-                        />
+
+                        <h2
+                            class="font-medium text-lg md:text-xl text-gray-800"
+                        >
+                            {{ article.title }}
+                        </h2>
                     </div>
-                    <div class="mt-4 flex flex-col gap-3 px-5 pb-5">
-                        <div>
-                            <p
-                                class="text-sm text-gray-400 mb-1 flex items-center gap-1"
-                            >
-                                <span> <Clock class="w-3.5" /> </span>
-                                <span>
-                                    {{
-                                        dayjs(article.created_at).format(
-                                            "MMMM D, YYYY"
-                                        )
-                                    }}
-                                </span>
-                            </p>
-                            <h2 class="font-medium text-xl text-gray-800">
-                                {{ article.title }}
-                            </h2>
-                        </div>
-                        <div>
-                            <p class="text-gray-500 text-base">
-                                {{ article.short_description }}
-                            </p>
-                        </div>
-                        <div class="border-t border-gray-200 pt-2">
-                            <ReadMoreButton name="Read more" />
-                        </div>
+
+                    <p class="text-gray-500 text-base">
+                        {{ article.short_description }}
+                    </p>
+
+                    <div class="border-t border-gray-200 pt-2">
+                        <ReadMoreButton name="Read more" />
                     </div>
                 </div>
             </div>
@@ -283,7 +298,7 @@ const props = defineProps({
                 class="w-15"
             />
             <div class="flex justify-center flex-col text-center">
-                <h2 class="text-3xl text-gray-700 font-medium">
+                <h2 class="text-2xl md:text-3xl text-gray-700 font-medium">
                     Subscribe to our newsletter
                 </h2>
                 <p class="text-slate-500">
@@ -296,7 +311,7 @@ const props = defineProps({
                     <div class="flex">
                         <input
                             placeholder="Enter email here"
-                            class="border-2 outline-none text-gray-800 border-gray-100 bg-gray-50 p-2 text-base rounded-l-md duration-400 ease-in-out focus:border-red ring-0 focus:bg-white w-lg"
+                            class="border-2 outline-none text-gray-800 border-gray-100 bg-gray-50 p-2 text-base rounded-l-md duration-400 ease-in-out focus:border-red ring-0 focus:bg-white w-full md:w-lg"
                         /><button class="btn !rounded-l-none !border-0">
                             SUBSCRIBE
                         </button>

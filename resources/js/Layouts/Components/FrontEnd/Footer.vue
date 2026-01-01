@@ -2,22 +2,26 @@
     <div class="w-full">
         <div class="bg-white w-full">
             <div class="px-4 py-10 w-full max-w-[1400px] mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
-                    <div class="flex-1">
-                        <h5 class="text-gray-700 font-bold text-base">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-4 md:gap-5 gap-8 text-center md:text-left"
+                >
+                    <div class="flex-1 flex justify-center md:justify-start">
+                        <div>
                             <img
                                 :src="`/storage/images/bh_icon.png`"
                                 alt="Bagong Henerasyon Partylist"
-                                class="w-[150px]"
+                                class="w-[80px] md:w-[120px] text-center"
                             />
-                        </h5>
+                        </div>
                     </div>
 
                     <div class="flex-1">
                         <h5 class="text-gray-700 font-bold text-base">
                             OUR CHANNELS
                         </h5>
-                        <ul class="flex flex-col mt-3">
+                        <ul
+                            class="flex flex-col md:mt-3 mt-0 md:justify-left justify-center"
+                        >
                             <li
                                 v-for="category in categories"
                                 :key="category.id"
@@ -41,7 +45,7 @@
                         <h5 class="text-gray-700 font-bold text-base">
                             USEFUL LINKS
                         </h5>
-                        <ul class="flex flex-col mt-3">
+                        <ul class="flex flex-col md:mt-3 mt-0">
                             <li class="mt-2">
                                 <Link
                                     class="text-gray-700 hover:text-red hover:underline"
@@ -99,7 +103,9 @@
                             <h5 class="text-gray-700 font-bold text-base">
                                 SOCIALS
                             </h5>
-                            <ul class="flex flex-row mt-3 gap-2">
+                            <ul
+                                class="flex flex-row md:mt-3 mt-0 gap-2 md:justify-start justify-center"
+                            >
                                 <li>
                                     <Link>
                                         <img
@@ -151,7 +157,9 @@
                             <h5 class="text-gray-700 font-bold text-base">
                                 CONTACTS
                             </h5>
-                            <ul class="flex flex-col mt-3 gap-2 text-gray-700">
+                            <ul
+                                class="flex flex-col md:mt-3 mt-0 gap-2 text-gray-700"
+                            >
                                 <li>
                                     <p>Mobile: 0909 090 0909</p>
                                 </li>
@@ -169,7 +177,7 @@
         </div>
         <div class="bg-red">
             <div class="w-full max-w-[1400px] mx-auto">
-                <p class="px-4 text-white py-1">
+                <p class="px-4 text-white py-1 text-center">
                     <small>© Copyright 2025 bagonghenerasyon.ph</small>
                 </p>
             </div>

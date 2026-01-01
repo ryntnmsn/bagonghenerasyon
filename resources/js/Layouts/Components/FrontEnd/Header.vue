@@ -1,11 +1,15 @@
 <template>
     <header class="w-full">
         <div class="bg-red w-full">
-            <div class="w-full max-w-[1400px] mx-auto px-4 py-1 flex">
+            <div
+                class="w-full max-w-[1400px] mx-auto px-4 py-1 flex text-center md:text-left"
+            >
                 <p class="text-white text-[10px] flex-1">
                     I-ANGAT LAHAT NG PAMILYA SOLO PARENTS AT IBA PA!
                 </p>
-                <p class="text-white text-[10px] flex-1 flex justify-end">
+                <p
+                    class="text-white text-[10px] flex-1 hidden md:flex justify-end"
+                >
                     Current Date: {{ formattedDate }}
                 </p>
             </div>
@@ -95,8 +99,11 @@
             </div>
 
             <!-- Mobile Dropdown -->
-            <div v-if="mobileMenuOpen" class="md:hidden bg-white">
-                <nav class="flex flex-col px-4 py-3 space-y-3">
+            <div
+                v-if="mobileMenuOpen"
+                class="md:hidden bg-white border-t border-gray-300"
+            >
+                <nav class="flex flex-col px-4 py-5 space-y-5">
                     <Link href="/" class="text-gray-700" @click="toggleMenu"
                         >Home</Link
                     >

@@ -14,8 +14,8 @@ const articleTitle = props.article.title;
 </script>
 
 <template>
-    <div class="w-full max-w-[1400px] mx-auto px-4 mt-10">
-        <div class="flex gap-8">
+    <div class="w-full max-w-[1400px] mx-auto px-4 mt-4 xl:mt-10">
+        <div class="xl:flex flex-none gap-8">
             <div class="w-full flex flex-col gap-5">
                 <div>
                     <img
@@ -34,7 +34,7 @@ const articleTitle = props.article.title;
                         </span>
                     </p>
                     <h1
-                        class="text-[36px] leading-[46px] font-medium text-gray-800"
+                        class="text-[26px] leading-[36px] md:text-[36px] md:leading-[46px] font-medium text-gray-800"
                     >
                         {{ article.title }}
                     </h1>
@@ -113,7 +113,9 @@ const articleTitle = props.article.title;
                                     Related articles
                                 </h1>
                             </div>
-                            <div class="grid grid-cols-3 gap-6 mt-6">
+                            <div
+                                class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6"
+                            >
                                 <div
                                     v-for="article in props.relatedArticles"
                                     :key="article.id"
@@ -176,7 +178,7 @@ const articleTitle = props.article.title;
                     </div>
                 </div>
             </div>
-            <div class="w-full max-w-[400px]">
+            <div class="w-full max-w-full md:max-w-[400px] mt-6 md:mt-0 mb-6">
                 <div class="p-5 bg-white shadow rounded-lg">
                     <h1 class="text-gray-700 text-xl font-medium">
                         Latest articles
