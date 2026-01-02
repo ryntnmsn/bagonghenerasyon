@@ -30,7 +30,7 @@ const props = defineProps({
                         >
                             <div class="w-full md:w-1/2">
                                 <h1
-                                    class="text-4xl md:text-6xl text-white font-medium leading-10 md:leading-18 text-center md:text-left"
+                                    class="text-4xl md:text-6xl text-white font-bold leading-10 md:leading-18 text-center md:text-left"
                                 >
                                     {{ banner.title }}
                                 </h1>
@@ -73,7 +73,7 @@ const props = defineProps({
                 <div
                     v-for="article in props.latestArticles"
                     :key="article.id"
-                    class="bg-white overflow-hidden relative shadow rounded-xl"
+                    class="bg-white overflow-hidden relative shadow rounded-xl hover:-translate-y-2 ease-in-out duration-300"
                 >
                     <Link
                         :href="route('single_article', article.slug)"
@@ -146,7 +146,7 @@ const props = defineProps({
             <div
                 v-for="articleCategory in props.articleCategories"
                 :key="articleCategory.id"
-                class="bg-white shadow rounded-xl"
+                class="bg-white shadow rounded-xl hover:-translate-y-2 ease-in-out duration-300"
             >
                 <Link
                     :href="
@@ -224,7 +224,7 @@ const props = defineProps({
             <div
                 v-for="article in props.featuredArticles"
                 :key="article.id"
-                class="bg-white overflow-hidden relative shadow rounded-xl"
+                class="bg-white overflow-hidden relative shadow rounded-xl hover:-translate-y-2 ease-in-out duration-300"
             >
                 <Link
                     :href="route('single_article', article.slug)"

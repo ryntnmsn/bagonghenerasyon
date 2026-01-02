@@ -1,5 +1,6 @@
 <template>
     <Head title="Login" />
+    <PageTitle name="Login" />
     <div
         class="w-full max-w-[650px] mx-auto my-20 px-15 py-10 bg-white rounded-lg"
     >
@@ -48,6 +49,7 @@ import AuthLayout from "../Layouts/AuthLayout.vue";
 import SecondaryText from "../../components/SecondaryText.vue";
 import InputText from "../../components/InputText.vue";
 import ButtonPrimary from "../../components/ButtonPrimary.vue";
+import PageTitle from "../Layouts/Components/FrontEnd/PageTitle.vue";
 
 // defineOptions({ layout: AuthLayout });
 

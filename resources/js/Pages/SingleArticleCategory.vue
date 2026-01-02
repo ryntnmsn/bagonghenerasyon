@@ -1,13 +1,13 @@
 <template>
     <Head :title="category.title"></Head>
+    <PageTitle :name="`Category: ${category.title}`" />
     <div class="w-full max-w-[1400px] mx-auto px-4 mt-4 xl:mt-10 mb-10">
         <div>
-            <SectionTitle :name="`Category: ${category.title}`" />
             <div class="grid grid-cols-4 gap-6 mt-6">
                 <div
                     v-for="article in articles.data"
                     :key="article.id"
-                    class="bg-white overflow-hidden relative shadow rounded-xl"
+                    class="bg-white overflow-hidden relative shadow rounded-xl hover:-translate-y-2 ease-in-out duration-300"
                 >
                     <Link
                         :href="route('single_article', article.slug)"
@@ -74,6 +74,7 @@ import dayjs from "dayjs";
 import ReadMoreButton from "../../components/FrontEnd/ReadMoreButton.vue";
 import SectionTitle from "../../components/FrontEnd/SectionTitle.vue";
 import { Clock } from "lucide-vue-next";
+import PageTitle from "../Layouts/Components/FrontEnd/PageTitle.vue";
 
 const props = defineProps({
     articles: Object,

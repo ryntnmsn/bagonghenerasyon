@@ -22,7 +22,7 @@
                         <img
                             :src="'/storage/images/BHPL_Logo.png'"
                             alt="Bagong Henerasyon PartyList Logo"
-                            class="w-[200px]"
+                            class="w-[180px] md:w-[200px]"
                         />
                     </Link>
 
@@ -32,28 +32,28 @@
                             <li>
                                 <Link
                                     href="/"
-                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-600 ease-in-out"
+                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
                                     >Home</Link
                                 >
                             </li>
                             <li>
                                 <Link
                                     :href="route('articles')"
-                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-600 ease-in-out"
+                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
                                     >NEWS</Link
                                 >
                             </li>
                             <li>
                                 <Link
                                     href="/"
-                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-600 ease-in-out"
+                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
                                     >MEDIA</Link
                                 >
                             </li>
                             <li>
                                 <Link
                                     :href="route('about')"
-                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-600 ease-in-out"
+                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
                                     >ABOUT</Link
                                 >
                             </li>
@@ -62,15 +62,15 @@
                             <ul class="flex space-x-5">
                                 <li>
                                     <Search
-                                        class="text-gray-700 w-6 h-6 cursor-pointer hover:text-red duration-600 ease-in-out"
+                                        class="text-gray-700 w-6 h-6 cursor-pointer hover:text-red duration-200 ease-in-out"
                                     />
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <Link :href="route('login')">
                                         <CircleUserRound
-                                            class="text-gray-700 w-6 h-6 cursor-pointer hover:text-red duration-600 ease-in-out"
+                                            class="text-gray-700 w-6 h-6 cursor-pointer hover:text-red duration-200 ease-in-out"
                                     /></Link>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </nav>
@@ -106,22 +106,25 @@
                 <nav class="flex flex-col px-4 py-5 space-y-5">
                     <Link
                         :href="route('home')"
-                        class="text-gray-700"
+                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
                         @click="toggleMenu"
                         >Home</Link
                     >
                     <Link
                         :href="route('articles')"
-                        class="text-gray-700"
+                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
                         @click="toggleMenu"
                         >Articles</Link
                     >
-                    <Link href="#" class="text-gray-700" @click="toggleMenu"
+                    <Link
+                        href="#"
+                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
+                        @click="toggleMenu"
                         >Media</Link
                     >
                     <Link
                         :href="route('about')"
-                        class="text-gray-700"
+                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
                         @click="toggleMenu"
                         >About</Link
                     >

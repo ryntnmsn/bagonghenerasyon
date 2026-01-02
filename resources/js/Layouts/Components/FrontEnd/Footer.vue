@@ -77,14 +77,14 @@
                                     About us
                                 </Link>
                             </li>
-                            <li class="mt-2">
+                            <!-- <li class="mt-2">
                                 <Link
                                     :href="route('login')"
                                     class="text-gray-700 hover:text-red hover:underline"
                                 >
                                     Account
                                 </Link>
-                            </li>
+                            </li> -->
                             <li class="mt-2">
                                 <Link
                                     class="text-gray-700 hover:text-red hover:underline"
