@@ -31,7 +31,7 @@
                         <ul class="flex items-center space-x-8">
                             <li>
                                 <Link
-                                    href="/"
+                                    :href="route('home')"
                                     class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline hover:underline-offset-5"
                                     >Home</Link
                                 >
@@ -117,7 +117,7 @@
                         >Articles</Link
                     >
                     <Link
-                        href="#"
+                        :href="route('media')"
                         class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
                         @click="toggleMenu"
                         >Media</Link
