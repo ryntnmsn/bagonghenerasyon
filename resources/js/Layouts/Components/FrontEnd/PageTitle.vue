@@ -1,7 +1,7 @@
 <template>
-    <div class="w-full p-5 bg-white shadow">
-        <div class="w-full max-w-[1400px] mx-auto px-4">
-            <h1 class="text-3xl md:text-4xl font-medium text-gray-700">
+    <div class="w-full pt-4 pb-4 bg-white shadow">
+        <div class="w-full max-w-[1400px] mx-auto">
+            <h1 class="text-3xl md:text-4xl font-medium text-gray-700 px-4">
                 {{ name }}
             </h1>
         </div>
