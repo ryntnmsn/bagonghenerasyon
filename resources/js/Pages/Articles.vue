@@ -75,7 +75,6 @@ import { router } from "@inertiajs/vue3";
 import dayjs from "dayjs";
 import PageTitle from "../Layouts/Components/FrontEnd/PageTitle.vue";
 import ReadMoreButton from "../../components/FrontEnd/ReadMoreButton.vue";
-import SectionTitle from "../../components/FrontEnd/SectionTitle.vue";
 import { Clock } from "lucide-vue-next";
 
 const props = defineProps({

@@ -44,6 +44,8 @@ class HandleInertiaRequests extends Middleware
                 'error' => fn () => $request->session()->get('error')
             ],
 
+            'subscriptionMessage' => fn () => $request->session()->get('subscriptionMessage'),
+
 
              // Lazily...
             'auth.user' => fn () => $request->user()

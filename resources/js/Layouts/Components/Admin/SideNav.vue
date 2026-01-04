@@ -105,14 +105,30 @@
                     :class="{
                         'active text-white font-medium bg-red':
                             page.url.startsWith('/admin/pages'),
-                        'text-slate-600': page.url.startsWith('/users'),
+                        'text-slate-600 ': page.url.startsWith('/users'),
+                    }"
+                    class="px-5 py-2 bg-gray-200"
+                >
+                    <Link
+                        class="flex gap-2 flex-row items-center hover:!text-gray-700"
+                        ><Tickets class="w-4" /><span>Tickets</span></Link
+                    >
+                </li>
+
+                <li
+                    @click="closeMenu"
+                    :class="{
+                        'active text-white font-medium bg-red':
+                            page.url.startsWith('/admin/media'),
+                        'text-slate-600 bg-gray-200':
+                            page.url.startsWith('/media'),
                     }"
                     class="px-5 py-2"
                 >
                     <Link
-                        :href="route('users.index')"
+                        :href="route('media.index')"
                         class="flex gap-2 flex-row items-center"
-                        ><Tickets class="w-4" /><span>Tickets</span></Link
+                        ><Images class="w-4" /><span>Media</span></Link
                     >
                 </li>
                 <li
@@ -127,7 +143,24 @@
                     <Link
                         :href="route('banners.index')"
                         class="flex gap-2 flex-row items-center"
-                        ><Images class="w-4" /><span>Banners</span></Link
+                        ><Image class="w-4" /><span>Banners</span></Link
+                    >
+                </li>
+                <li
+                    @click="closeMenu"
+                    :class="{
+                        'active text-white font-medium bg-red':
+                            page.url.startsWith('/admin/subscriptions'),
+                        'text-slate-600': page.url.startsWith('/subscriptions'),
+                    }"
+                    class="px-5 py-2"
+                >
+                    <Link
+                        :href="route('subscriptions.index')"
+                        class="flex gap-2 flex-row items-center"
+                        ><UsersRound class="w-4" /><span
+                            >Subscriptions</span
+                        ></Link
                     >
                 </li>
                 <li
@@ -172,6 +205,7 @@ import {
     LayoutPanelTop,
     Tickets,
     Plus,
+    Image,
 } from "lucide-vue-next";
 
 const openMenu = ref(null);

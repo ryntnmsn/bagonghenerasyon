@@ -45,7 +45,7 @@
                             </li>
                             <li>
                                 <Link
-                                    href="/"
+                                    :href="route('media')"
                                     class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
                                     >MEDIA</Link
                                 >

@@ -1,6 +1,6 @@
 <template>
     <Head title="Login" />
-    <PageTitle name="Login" />
+    <PageTitle name="Account" />
     <div
         class="w-full max-w-[650px] mx-auto my-20 px-15 py-10 bg-white rounded-lg"
     >

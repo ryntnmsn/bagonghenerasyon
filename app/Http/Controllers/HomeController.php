@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Media;
 use App\Models\Banner;
 use App\Models\Article;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Models\ArticleCategory;
 
@@ -34,7 +36,8 @@ class HomeController extends Controller
             'banners' => $banners,
             'latestArticles' => $latestArticles,
             'featuredArticles' => $featuredArticles,
-            'articleCategories' => $articleCategories
+            'articleCategories' => $articleCategories,
+            'subscriptionMessage' => session('subscriptionMessage', ''),
         ]);
     }
 
@@ -99,5 +102,37 @@ class HomeController extends Controller
     }
 
 
+    public function media() {
+
+        $medias = Media::where('status', true)->latest()->paginate(15);
+
+        return Inertia::render('Media', [
+            'medias' => $medias
+        ]);
+    }
+
+
+    public function single_media($slug) {
+
+        $media = Media::where('slug', $slug)->first();
+
+        return Inertia::render('SingleMedia', [
+            'media' => $media
+        ]);
+    }
+
+
+    public function subscription(Request $request) {
+        $request->validate([
+            'email' => ['email', 'min:6', 'max:255']
+        ]);
+
+        Subscription::create([
+            'email' => $request->email
+        ]);
+
+        return back()->with('subscriptionMessage', 'Thank you for subscribing to our newsletter. Please check your email for updates and announcements.');
+
+    }
 
 }

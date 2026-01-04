@@ -16,7 +16,6 @@ const message = ref("");
 const type = ref("success");
 let timeoutId = null;
 
-// Watch for changes in the page props (especially the flash messages)
 watch(
     () => page.props.flash,
     (newFlash) => {
@@ -25,30 +24,25 @@ watch(
             type.value = newFlash.success ? "success" : "error";
             show.value = true;
 
-            // Clear any existing timeout
             if (timeoutId) {
                 clearTimeout(timeoutId);
             }
 
-            // Automatically hide after 5 seconds (5000 milliseconds)
             timeoutId = setTimeout(() => {
                 hideMessage();
             }, 5000);
         }
     },
-    { deep: true } // Use deep watcher to catch nested changes
+    { deep: true }
 );
 
 const hideMessage = () => {
     show.value = false;
-    // Optional: clear the message from the store to prevent it from reappearing on subsequent visits
-    // page.props.flash.success = null;
-    // page.props.flash.error = null;
 };
 
 const typeClass = computed(() => {
     if (type.value === "success")
-        return "bg-green-100 text-green-700 border border-green-200";
+        return "bg-green-100 text-green-700 border border-green-200 rounded-md";
     if (type.value === "error") return "bg-rose-100 text-rose-700";
     return "bg-blue-500 text-white"; // Default
 });
@@ -57,7 +51,6 @@ const typeClass = computed(() => {
 <style scoped>
 .flash-message {
     padding: 1rem;
-    border-radius: 0.25rem;
     position: fixed;
     bottom: 1rem;
     right: 1rem;
@@ -66,6 +59,7 @@ const typeClass = computed(() => {
     justify-content: space-between;
     align-items: center;
 }
+
 .close-btn {
     margin-left: 1rem;
     cursor: pointer;

@@ -155,8 +155,6 @@ class ArticleController extends Controller
        $newArticle->status = 0;
        
        $newArticle->save();
-
-
     }
 
 

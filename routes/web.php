@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SubscriptionController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\ArticleCategoryController;
 
@@ -18,7 +20,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/article/{slug}', 'single_article')->name('single_article');
     Route::get('/articles', 'articles')->name('articles');
     Route::get('/articles/category/{slug}', 'single_article_category')->name('single_article_category');
+    Route::get('/media', 'media')->name('media');
+    Route::get('/media/{slug}', 'single_media')->name('single_media');
     Route::get('/about', 'about')->name('about');
+    Route::post('/subscription/store', 'subscription')->name('subscription');
 });
 
 
@@ -86,5 +91,21 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::put('/update/{id}', 'update')->name('update');
         Route::delete('/delete/{id}', 'destroy')->name('destroy');
+    });
+
+
+    //MEdia
+    Route::controller(MediaController::class)->prefix('media')->name('media.')->group(function() {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::put('/update/{id}', 'update')->name('update');
+        Route::delete('/delete/{id}', 'destroy')->name('destroy');
+    });
+
+    //Subscriptions
+    Route::controller(SubscriptionController::class)->group(function () {
+        Route::get('/subscriptions', 'index')->name('subscriptions.index');
     });
 });

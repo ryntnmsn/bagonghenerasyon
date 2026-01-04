@@ -10,7 +10,7 @@
                             <img
                                 :src="`/storage/images/bh_icon.png`"
                                 alt="Bagong Henerasyon Partylist"
-                                class="w-[80px] md:w-[120px] text-center"
+                                class="w-24 text-center"
                             />
                         </div>
                     </div>
@@ -64,6 +64,7 @@
                             </li>
                             <li class="mt-2">
                                 <Link
+                                    :href="route('media')"
                                     class="text-gray-700 hover:text-red hover:underline"
                                 >
                                     Media
@@ -75,28 +76,6 @@
                                     class="text-gray-700 hover:text-red hover:underline"
                                 >
                                     About us
-                                </Link>
-                            </li>
-                            <!-- <li class="mt-2">
-                                <Link
-                                    :href="route('login')"
-                                    class="text-gray-700 hover:text-red hover:underline"
-                                >
-                                    Account
-                                </Link>
-                            </li> -->
-                            <li class="mt-2">
-                                <Link
-                                    class="text-gray-700 hover:text-red hover:underline"
-                                >
-                                    Privacy Policy
-                                </Link>
-                            </li>
-                            <li class="mt-2">
-                                <Link
-                                    class="text-gray-700 hover:text-red hover:underline"
-                                >
-                                    Terms and Conditions
                                 </Link>
                             </li>
                         </ul>

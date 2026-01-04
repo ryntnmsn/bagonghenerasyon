@@ -9,13 +9,41 @@ import "vue3-carousel/dist/carousel.css";
 import { Clock } from "lucide-vue-next";
 import dayjs from "dayjs";
 import { defineProps, ref } from "vue";
+import { useForm } from "@inertiajs/vue3";
 
 const props = defineProps({
     banners: Object,
     latestArticles: Object,
     featuredArticles: Object,
     articleCategories: Object,
+    subscriptionMessage: {
+        type: String,
+        default: "",
+    },
 });
+
+const form = useForm({
+    email: "",
+});
+
+const subscriptionMessage = ref("");
+
+function submit() {
+    // Reset previous message
+    subscriptionMessage.value = "";
+
+    form.post(route("subscription"), {
+        onSuccess: (page) => {
+            form.reset("email");
+
+            // Set new message if backend returns one
+            if (page.props.subscriptionMessage) {
+                subscriptionMessage.value = page.props.subscriptionMessage;
+            }
+        },
+        preserveScroll: true,
+    });
+}
 </script>
 
 <template>
@@ -138,9 +166,6 @@ const props = defineProps({
             <div class="flex-auto">
                 <SectionTitle name="Top Categories" />
             </div>
-            <!-- <div class="flex-end flex justify-center">
-                <SeeAllButton name="See All" />
-            </div> -->
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-4">
             <div
@@ -292,18 +317,31 @@ const props = defineProps({
                 </p>
             </div>
             <div class="mt-3 w-full max-w-lg">
-                <form action="" class="w-full">
+                <form @submit.prevent="submit" class="w-full">
                     <div
                         class="w-full flex md:flex-row flex-col md:gap-0 gap-3"
                     >
                         <input
+                            v-model="form.email"
                             placeholder="Enter email here"
                             class="text-center md:text-left border-2 outline-none text-gray-800 border-gray-100 bg-gray-50 p-2 text-base rounded-l-md duration-400 ease-in-out focus:border-red ring-0 focus:bg-white w-full md:w-lg"
                         /><button
+                            :disabled="form.processing"
+                            type="submit"
                             class="btn md:!rounded-l-none !border-0 flex justify-center"
                         >
                             SUBSCRIBE
                         </button>
+                    </div>
+                    <div class="mt-3">
+                        <small class="text-red text-[12px]">
+                            {{ form.errors.email }}</small
+                        >
+                    </div>
+                    <div v-if="subscriptionMessage" class="mt-3">
+                        <small class="text-green-600 text-[12px]">
+                            {{ subscriptionMessage }}
+                        </small>
                     </div>
                 </form>
             </div>
