@@ -34,7 +34,7 @@
                                             category.slug
                                         )
                                     "
-                                    class="text-gray-700 hover:text-red hover:underline"
+                                    class="text-gray-700 hover:text-red hover:underline hover:underline-offset-4"
                                     >{{ category.title }}</Link
                                 >
                             </li>
@@ -49,7 +49,7 @@
                             <li class="mt-2">
                                 <Link
                                     :href="route('home')"
-                                    class="text-gray-700 hover:text-red hover:underline"
+                                    class="text-gray-700 hover:text-red hover:underline hover:underline-offset-4"
                                 >
                                     Home
                                 </Link>
@@ -57,7 +57,7 @@
                             <li class="mt-2">
                                 <Link
                                     :href="route('articles')"
-                                    class="text-gray-700 hover:text-red hover:underline"
+                                    class="text-gray-700 hover:text-red hover:underline hover:underline-offset-4"
                                 >
                                     News
                                 </Link>
@@ -65,7 +65,7 @@
                             <li class="mt-2">
                                 <Link
                                     :href="route('media')"
-                                    class="text-gray-700 hover:text-red hover:underline"
+                                    class="text-gray-700 hover:text-red hover:underline hover:underline-offset-4"
                                 >
                                     Media
                                 </Link>
@@ -73,7 +73,7 @@
                             <li class="mt-2">
                                 <Link
                                     :href="route('about')"
-                                    class="text-gray-700 hover:text-red hover:underline"
+                                    class="text-gray-700 hover:text-red hover:underline hover:underline-offset-4"
                                 >
                                     About us
                                 </Link>

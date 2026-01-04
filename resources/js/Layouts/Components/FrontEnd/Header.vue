@@ -32,28 +32,28 @@
                             <li>
                                 <Link
                                     href="/"
-                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
+                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline hover:underline-offset-5"
                                     >Home</Link
                                 >
                             </li>
                             <li>
                                 <Link
                                     :href="route('articles')"
-                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
+                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline hover:underline-offset-5"
                                     >NEWS</Link
                                 >
                             </li>
                             <li>
                                 <Link
                                     :href="route('media')"
-                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
+                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline hover:underline-offset-5"
                                     >MEDIA</Link
                                 >
                             </li>
                             <li>
                                 <Link
                                     :href="route('about')"
-                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline"
+                                    class="text-gray-700 font-medium uppercase text-[14px] tracking-[0.5px] hover:text-red duration-200 ease-in-out hover:underline hover:underline-offset-5"
                                     >ABOUT</Link
                                 >
                             </li>
