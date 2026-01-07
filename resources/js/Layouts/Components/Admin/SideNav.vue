@@ -60,7 +60,7 @@
                     <!-- Dropdown -->
                     <ul
                         v-show="openMenu === 'articles'"
-                        class="pt-2 ps-5 rounded-md bg-red-50"
+                        class="pt-2 ps-5 rounded-md bg-red-100"
                     >
                         <li class="py-2 px-4">
                             <Link :href="route('articles.index')"

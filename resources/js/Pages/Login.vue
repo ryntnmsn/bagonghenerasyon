@@ -1,44 +1,49 @@
 <template>
     <Head title="Login" />
     <PageTitle name="Account" />
-    <div
-        class="w-full max-w-[650px] mx-auto my-20 px-15 py-10 bg-white rounded-lg"
-    >
-        <div class="flex flex-col justify-center">
-            <h2 class="font-bold text-3xl text-red mb-2">Login</h2>
-            <SecondaryText
-                >Enter your credentials to login to your account.</SecondaryText
-            >
+    <div class="px-4">
+        <div
+            class="w-full max-w-[650px] mx-auto my-10 md:my-20 px-15 py-10 bg-white rounded-lg shadow"
+        >
+            <div class="flex flex-col justify-center">
+                <h2 class="font-bold text-3xl text-red mb-2">Login</h2>
+                <SecondaryText
+                    >Enter your credentials to login to your
+                    account.</SecondaryText
+                >
 
-            <form @submit.prevent="submit" class="mt-6">
-                <InputText
-                    name="Username"
-                    type="text"
-                    v-model="form.username"
-                    :message="form.errors.username"
-                />
+                <form @submit.prevent="submit" class="mt-6">
+                    <InputText
+                        name="Username"
+                        type="text"
+                        v-model="form.username"
+                        :message="form.errors.username"
+                    />
 
-                <InputText
-                    name="Password"
-                    type="password"
-                    v-model="form.password"
-                    :message="form.errors.password"
-                />
-                <div class="mb-6">
-                    <div class="flex gap-2 items-center">
-                        <input
-                            type="checkbox"
-                            name="remember"
-                            v-model="form.remember"
-                            class="border appearance-none rounded-sm h-4 w-4 cursor-pointer border-gray-300 text-red outline-none focus:ring-1 ring-red checked:bg-red transition duration-300 ease-in-out"
-                        />
-                        <label for="remember_me" class="text-gray-800"
-                            >Remember me</label
-                        >
+                    <InputText
+                        name="Password"
+                        type="password"
+                        v-model="form.password"
+                        :message="form.errors.password"
+                    />
+                    <div class="mb-6">
+                        <div class="flex gap-2 items-center">
+                            <input
+                                type="checkbox"
+                                name="remember"
+                                v-model="form.remember"
+                                class="border appearance-none rounded-sm h-4 w-4 cursor-pointer border-gray-300 text-red outline-none focus:ring-1 ring-red checked:bg-red transition duration-300 ease-in-out"
+                            />
+                            <label for="remember_me" class="text-gray-800"
+                                >Remember me</label
+                            >
+                        </div>
                     </div>
-                </div>
-                <button class="btn" :disabled="form.processing">Submit</button>
-            </form>
+                    <button class="btn" :disabled="form.processing">
+                        Submit
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </template>

@@ -198,37 +198,28 @@ function submit() {
                 <div class="bg-[#af000042] p-5 flex flex-col gap-2 rounded-xl">
                     <h2 class="text-amber-500 font-bold text-4xl">Mission</h2>
                     <p class="text-[#ffe0e1]">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur.
+                        To achieve a healthy, educated, prosperous and empowered
+                        citizenry.
                     </p>
                 </div>
                 <div class="bg-[#af000042] p-5 flex flex-col gap-2 rounded-xl">
                     <h2 class="text-amber-500 font-bold text-4xl">Vision</h2>
                     <p class="text-[#ffe0e1]">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur.
+                        To lead the fight against sickness, ignorance, poverty,
+                        and indifference by empowering individuals with
+                        knowledge and skills.
                     </p>
                 </div>
                 <div class="bg-[#af000042] p-5 flex flex-col gap-2 rounded-xl">
                     <h2 class="text-amber-500 font-bold text-4xl">Values</h2>
                     <p class="text-[#ffe0e1]">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur.
+                        To comprehensively implement continuous and sustainable
+                        programs through its H.E.L.P.S. advocacies: <br />
+                        <b>HEALTH</b><br />
+                        <b>EDUCATION</b><br />
+                        <b>LIVELIHOOD</b><br />
+                        <b>PEOPLE EMPOWERMENT</b><br />
+                        <b>SUSTAINABLE DEVELOPMENT</b>
                     </p>
                 </div>
             </div>
