@@ -135,4 +135,20 @@ class HomeController extends Controller
 
     }
 
+
+    public function search(Request $request) {
+        $query = $request->q;
+
+        $results  = Article::where('title', 'like', "%{$query}%")
+            ->orWhere('short_description', 'like', "%{$query}%")
+            ->latest()
+            ->get();
+
+            return Inertia::render('Search', [
+                'query' => $query,
+                'results' => $results
+            ]);
+
+    }
+
 }

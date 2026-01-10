@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubscriptionController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\ArticleCategoryController;
+use App\Http\Controllers\SearchController;
 
 // sleep(1);
 //Home
@@ -24,6 +25,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/media/{slug}', 'single_media')->name('single_media');
     Route::get('/about', 'about')->name('about');
     Route::post('/subscription/store', 'subscription')->name('subscription');
+    Route::get('/search', 'search')->name('search');
 });
 
 

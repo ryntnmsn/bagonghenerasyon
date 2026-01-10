@@ -62,8 +62,51 @@
                             <ul class="flex space-x-5">
                                 <li>
                                     <Search
+                                        @click.stop="toggleSearch"
                                         class="text-gray-700 w-6 h-6 cursor-pointer hover:text-red duration-200 ease-in-out"
                                     />
+
+                                    <Transition
+                                        enter-active-class="transition-all duration-300 ease-out"
+                                        enter-from-class="opacity-0 -translate-y-4"
+                                        enter-to-class="opacity-100 translate-y-0"
+                                        leave-active-class="transition-all duration-200 ease-in"
+                                        leave-from-class="opacity-100 translate-y-0"
+                                        leave-to-class="opacity-0 -translate-y-4"
+                                    >
+                                        <div
+                                            v-if="showSearch"
+                                            ref="searchRef"
+                                            class="w-full shadow-lg absolute right-0 mt-7 bg-white py-6 z-50 border border-gray-300 duration-400 ease-in-out"
+                                        >
+                                            <div
+                                                class="w-full max-w-[1400px] mx-auto"
+                                            >
+                                                <div class="px-4">
+                                                    <div class="relative">
+                                                        <form
+                                                            @submit.prevent="
+                                                                submit
+                                                            "
+                                                        >
+                                                            <input
+                                                                v-model="form.q"
+                                                                type="text"
+                                                                placeholder="Search..."
+                                                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red"
+                                                            />
+                                                            <button
+                                                                type="submit"
+                                                                class="bg-red text-white absolute right-0 z-10 hover:cursor-pointer"
+                                                            >
+                                                                Search
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Transition>
                                 </li>
                                 <!-- <li>
                                     <Link :href="route('login')">
@@ -135,9 +178,30 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { Link } from "@inertiajs/vue3";
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { Link, useForm } from "@inertiajs/vue3";
 import { Search, CircleUserRound } from "lucide-vue-next";
+
+const showSearch = ref(false);
+const searchRef = ref(null);
+
+const toggleSearch = () => {
+    showSearch.value = !showSearch.value;
+};
+
+const handleClickOutside = (event) => {
+    if (searchRef.value && !searchRef.value.contains(event.target)) {
+        showSearch.value = false;
+    }
+};
+
+onMounted(() => {
+    document.addEventListener("click", handleClickOutside);
+});
+
+onUnmounted(() => {
+    document.removeEventListener("click", handleClickOutside);
+});
 
 const mobileMenuOpen = ref(false);
 
@@ -152,6 +216,22 @@ const formattedDate = computed(() => {
         timeStyle: "long",
     }).format(today);
 });
+
+const form = useForm({
+    q: "",
+});
+
+function submit() {
+    if (!form.q) return;
+
+    form.get(route("search"), {
+        preserveState: true,
+        preserveScroll: true,
+        onSuccess: () => {
+            showSearch.value = false;
+        },
+    });
+}
 </script>
 
 <style></style>

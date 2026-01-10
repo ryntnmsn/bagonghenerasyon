@@ -65,9 +65,16 @@ function submit() {
                             </div>
                             <div
                                 v-if="banner.link != null"
-                                class="text-center md:text-left"
+                                class="text-center md:text-left mt-6"
                             >
-                                <Button name="Learn More" />
+                                <a
+                                    :href="banner.link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    external
+                                    class="bg-red text-white px-6 py-3 font-medium text-lg rounded-md hover:bg-redHover duration-400 ease-in-out"
+                                    >Learn More</a
+                                >
                             </div>
                         </div>
                     </div>
