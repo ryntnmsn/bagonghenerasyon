@@ -25,7 +25,8 @@
 
 <script setup>
 import { Head, usePage } from "@inertiajs/vue3";
-defineProps({
+
+const props = defineProps({
     title: String,
     description: String,
     image: String,
