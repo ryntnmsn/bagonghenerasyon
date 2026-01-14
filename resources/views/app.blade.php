@@ -12,7 +12,7 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="{{ url()->current() }}">
-
+    
     <meta property="og:title" content="Bagong Henerasyon Partylist">
     <meta property="og:description" content="Lead the fight against sickness, ignorance, poverty, and indifference by
 empowering individuals with knowledge and skills.">
@@ -26,6 +26,7 @@ empowering individuals with knowledge and skills.">
 empowering individuals with knowledge and skills.">
     <meta name="twitter:image" content="{{ asset('storage/images/og-image.jpg') }}">
 
+    <link rel="icon" type="image/png" href="{{ asset('storage/images/favicon.png') }}">
 
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')

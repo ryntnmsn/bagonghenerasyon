@@ -149,25 +149,25 @@
                 <nav class="flex flex-col px-4 py-5 space-y-5">
                     <Link
                         :href="route('home')"
-                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
+                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px] hover:underline-offset-5"
                         @click="toggleMenu"
                         >Home</Link
                     >
                     <Link
                         :href="route('articles')"
-                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
+                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px] hover:underline-offset-5"
                         @click="toggleMenu"
                         >Articles</Link
                     >
                     <Link
                         :href="route('media')"
-                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
+                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px] hover:underline-offset-5"
                         @click="toggleMenu"
                         >Media</Link
                     >
                     <Link
                         :href="route('about')"
-                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px]"
+                        class="text-gray-700 hover:text-red duration-200 ease-in-out hover:underline text-[16px] hover:underline-offset-5"
                         @click="toggleMenu"
                         >About</Link
                     >
