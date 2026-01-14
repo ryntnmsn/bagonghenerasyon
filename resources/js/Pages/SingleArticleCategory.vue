@@ -3,7 +3,9 @@
     <PageTitle :name="`Category: ${category.title}`" />
     <div class="w-full max-w-[1400px] mx-auto px-4 mt-4 xl:mt-10 mb-10">
         <div>
-            <div class="grid grid-cols-4 gap-6 mt-6">
+            <div
+                class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6"
+            >
                 <div
                     v-for="article in articles.data"
                     :key="article.id"

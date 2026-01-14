@@ -54,6 +54,12 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
         $articles = Article::with('category')->latest()->paginate(12);
         return Inertia::render('Articles', [
             'articles' => $articles
+        ])->withViewData([
+            'meta' => [
+                'title' => 'News | Bagong Henerasyon Partylist',
+                'description' => 'Official source of articles and news featuring the initiatives, programs, and advocacies of Bagong Henerasyon Partylist.',
+                'image' => asset('storage/images/og-image.jpg')
+            ],
         ]);
     }
 
@@ -71,6 +77,12 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
         return Inertia::render('SingleArticleCategory', [
             'articles' => $articles,
             'category' => $category
+        ])->withViewData([
+            'meta' => [
+                'title' => $category->title . ' | Bagong Henerasyon Partylist',
+                'description' => $category->description,
+                'image' => asset('storage/images/og-image.jpg')
+            ],
         ]);
     }
 
@@ -98,6 +110,12 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
             'article' => $article,
             'latestArticles' => $latestArticles,
             'relatedArticles' => $relatedArticles
+        ])->withViewData([
+            'meta' => [
+                'title' => $article->title . ' | Bagong Henerasyon Partylist',
+                'description' => $article->short_description,
+                'image' => asset('storage/'. $article->image)
+            ],
         ]);
 
     }
@@ -105,7 +123,13 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
 
 
     public function about() {
-        return Inertia::render('About');
+        return Inertia::render('About')->withViewData([
+            'meta' => [
+                'title' => 'About | Bagong Henerasyon Partylist',
+                'description' => 'The BAGONG HENERASYON is a non-stock, non-profit, non-government organization, a foundation and a party-list founded by Representative Bernadette “BH” Herrera-Dy.',
+                'image' => asset('/storage/images/about_us_image.jpg')
+            ],
+        ]);
     }
 
 
@@ -115,6 +139,12 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
 
         return Inertia::render('Media', [
             'medias' => $medias
+        ])->withViewData([
+            'meta' => [
+                'title' => 'Media | Bagong Henerasyon Partylist',
+                'description' => 'Stay updated with the latest news, press releases, photos, videos, and official announcements from Bagong Henerasyon Partylist.',
+                'image' => asset('/storage/images/about_us_image.jpg')
+            ],
         ]);
     }
 
@@ -123,8 +153,19 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
 
         $media = Media::where('slug', $slug)->first();
 
+        $images = $media->images;
+        $firstImage = is_array($images) && count($images)
+        ? asset('/storage/' . $images[0])
+        : asset('/storage/images/og-image.jpg');
+
         return Inertia::render('SingleMedia', [
             'media' => $media
+        ])->withViewData([
+            'meta' => [
+                'title' => $media->title . ' | Bagong Henerasyon Partylist',
+                'description' => $media->description,
+                'image' => $firstImage
+            ],
         ]);
     }
 
@@ -139,7 +180,6 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
         ]);
 
         return back()->with('subscriptionMessage', 'Thank you for subscribing to our newsletter. Please check your email for updates and announcements.');
-
     }
 
 
@@ -155,7 +195,6 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
                 'query' => $query,
                 'results' => $results
             ]);
-
     }
 
 }
