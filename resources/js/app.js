@@ -15,7 +15,6 @@ createInertiaApp({
 
         const page = pages[`./Pages/${name}.vue`];
 
-        // Auto layout selection
         if (name.startsWith("Admin/")) {
             page.default.layout = page.default.layout || AdminLayout;
         } else {

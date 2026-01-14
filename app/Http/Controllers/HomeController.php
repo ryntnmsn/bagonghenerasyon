@@ -38,6 +38,7 @@ class HomeController extends Controller
             'featuredArticles' => $featuredArticles,
             'articleCategories' => $articleCategories,
             'subscriptionMessage' => session('subscriptionMessage', ''),
+            
         ]);
     }
 

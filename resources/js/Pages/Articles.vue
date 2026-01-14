@@ -1,6 +1,6 @@
 <template>
-    <Head title="Articles"></Head>
-    <PageTitle name="Articles" />
+    <Head title="News"></Head>
+    <PageTitle name="News" />
     <div class="w-full max-w-[1400px] mx-auto mt-5 md:mt-10 mb-10">
         <div class="px-4">
             <div

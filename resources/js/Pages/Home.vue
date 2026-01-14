@@ -3,11 +3,12 @@ import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import SectionTitle from "../../components/FrontEnd/SectionTitle.vue";
 import SeeAllButton from "../../components/FrontEnd/SeeAllButton.vue";
 import ReadMoreButton from "../../components/FrontEnd/ReadMoreButton.vue";
+import SeoHead from "../../components/FrontEnd/SeoHead.vue";
 import "vue3-carousel/dist/carousel.css";
 import { Clock } from "lucide-vue-next";
 import dayjs from "dayjs";
 import { defineProps, ref } from "vue";
-import { useForm } from "@inertiajs/vue3";
+import { useForm, Head } from "@inertiajs/vue3";
 
 const props = defineProps({
     banners: Object,
@@ -43,6 +44,12 @@ function submit() {
 </script>
 
 <template>
+    <SeoHead
+        title="Home"
+        description="Lead the fight against sickness, ignorance, poverty, and indifference by
+empowering individuals with knowledge and skills. Achieve a healthy, educated, prosperous and empowered citizenry and out goals is to comprehensively implement continuous and sustainable programs through its H.E.L.P.S. advocacies."
+        image="/storage/images/og-image.jpg"
+    />
     <div v-if="banners && banners.length" class="banner-slider">
         <Carousel :autoplay="6000" :wrap-around="true">
             <Slide v-for="banner in props.banners" :key="banner.id">

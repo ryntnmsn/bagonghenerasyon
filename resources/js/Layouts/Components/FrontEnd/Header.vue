@@ -93,11 +93,11 @@
                                                                 v-model="form.q"
                                                                 type="text"
                                                                 placeholder="Search..."
-                                                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red"
+                                                                class="w-full px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:border-gray-600 focus:ring-0"
                                                             />
                                                             <button
                                                                 type="submit"
-                                                                class="bg-red text-white absolute right-0 z-10 hover:cursor-pointer"
+                                                                class="bg-red text-white absolute right-0 z-10 hover:cursor-pointer h-full px-3 rounded-r-md hover:bg-redHover"
                                                             >
                                                                 Search
                                                             </button>

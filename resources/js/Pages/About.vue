@@ -1,5 +1,12 @@
 <template>
-    <Head title="About"></Head>
+    <SeoHead
+        title="About"
+        description="The BAGONG HENERASYON is a non-stock, non-profit,
+                non-government organization, a foundation and a party-list
+                founded by Representative Bernadette “BH” Herrera-Dy."
+        image="/storage/images/about_us_image.jpg"
+    />
+
     <PageTitle name="About Us" />
 
     <!-- About Content -->
@@ -164,90 +171,16 @@
             </div>
         </div>
     </section>
-
-    <!-- Team -->
-    <!-- <section class="py-16">
-        <div class="max-w-[1400px] mx-auto px-6">
-            <h2 class="text-3xl font-medium text-center mb-12 text-gray-700">
-                Meet the Team
-            </h2>
-
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <img
-                        :src="`/storage/images/about_us_image.jpg`"
-                        class="w-24 h-24 mx-auto rounded-full mb-4"
-                        alt="Team member"
-                    />
-                    <h3 class="font-medium text-lg text-gray-700">
-                        Bernadette Herrera
-                    </h3>
-                    <p class="text-gray-500 text-sm">Founder</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <img
-                        :src="`/storage/images/about_us_image.jpg`"
-                        class="w-24 h-24 mx-auto rounded-full mb-4"
-                        alt="Team member"
-                    />
-                    <h3 class="font-medium text-lg text-gray-700">
-                        Bernadette Herrera
-                    </h3>
-                    <p class="text-gray-500 text-sm">Founder</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <img
-                        :src="`/storage/images/about_us_image.jpg`"
-                        class="w-24 h-24 mx-auto rounded-full mb-4"
-                        alt="Team member"
-                    />
-                    <h3 class="font-medium text-lg text-gray-700">
-                        Bernadette Herrera
-                    </h3>
-                    <p class="text-gray-500 text-sm">Founder</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <img
-                        :src="`/storage/images/about_us_image.jpg`"
-                        class="w-24 h-24 mx-auto rounded-full mb-4"
-                        alt="Team member"
-                    />
-                    <h3 class="font-medium text-lg text-gray-700">
-                        Bernadette Herrera
-                    </h3>
-                    <p class="text-gray-500 text-sm">Founder</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <img
-                        :src="`/storage/images/about_us_image.jpg`"
-                        class="w-24 h-24 mx-auto rounded-full mb-4"
-                        alt="Team member"
-                    />
-                    <h3 class="font-medium text-lg text-gray-700">
-                        Bernadette Herrera
-                    </h3>
-                    <p class="text-gray-500 text-sm">Founder</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
-                    <img
-                        :src="`/storage/images/about_us_image.jpg`"
-                        class="w-24 h-24 mx-auto rounded-full mb-4"
-                        alt="Team member"
-                    />
-                    <h3 class="font-medium text-lg text-gray-700">
-                        Bernadette Herrera
-                    </h3>
-                    <p class="text-gray-500 text-sm">Founder</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
 </template>
 
 <script setup>
 import PageTitle from "../Layouts/Components/FrontEnd/PageTitle.vue";
+import SeoHead from "../../components/FrontEnd/SeoHead.vue";
+
+const title = "About";
+const description =
+    "Welcome to My App, a fast and modern web application built with Laravel and Vue.";
+const image = "/storage/images/about_us_image.jpg";
 </script>
 
 <style></style>
