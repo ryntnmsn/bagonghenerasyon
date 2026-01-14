@@ -38,14 +38,14 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
 
+            'appUrl' => config('app.url'),
 
-             'flash' => [
+            'flash' => [
                 'success' => fn () => $request->session()->get('success'),
                 'error' => fn () => $request->session()->get('error')
             ],
 
             'subscriptionMessage' => fn () => $request->session()->get('subscriptionMessage'),
-
 
              // Lazily...
             'auth.user' => fn () => $request->user()

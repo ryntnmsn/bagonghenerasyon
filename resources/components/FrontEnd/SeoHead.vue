@@ -14,12 +14,12 @@
         <meta property="og:description" :content="description" />
         <meta property="og:type" content="website" />
         <meta property="og:url" :content="url" />
-        <meta property="og:image" :content="image" />
+        <meta property="og:image" :content="ogImage" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" :content="title" />
         <meta name="twitter:description" :content="description" />
-        <meta name="twitter:image" :content="image" />
+        <meta name="twitter:image" :content="ogImage" />
     </Head>
 </template>
 
@@ -32,9 +32,12 @@ defineProps({
 });
 
 const page = usePage();
-const url = page.url
-    ? `${window.location.origin}${page.url}`
-    : window.location.href;
+
+const url = page.url ? `${page.props.appUrl}${page.url}` : page.props.appUrl;
+
+const ogImage = props.image.startsWith("http")
+    ? props.image
+    : `${page.props.appUrl}${props.image}`;
 </script>
 
 <style></style>
