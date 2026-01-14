@@ -38,7 +38,13 @@ class HomeController extends Controller
             'featuredArticles' => $featuredArticles,
             'articleCategories' => $articleCategories,
             'subscriptionMessage' => session('subscriptionMessage', ''),
-            
+        ])->withViewData([
+            'meta' => [
+                'title' => 'Bagong Henerasyon Partylist',
+                'description' => 'Lead the fight against sickness, ignorance, poverty, and indifference by
+empowering individuals with knowledge and skills. Achieve a healthy, educated, prosperous and empowered citizenry and our goals is to comprehensively implement continuous and sustainable programs through its H.E.L.P.S. advocacies.',
+                'image' => asset('images/og-image.jpg')
+            ],
         ]);
     }
 
