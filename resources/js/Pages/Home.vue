@@ -1,7 +1,5 @@
 <script setup>
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-import Button from "../../components/FrontEnd/Button.vue";
-import InputText from "../../components/InputText.vue";
 import SectionTitle from "../../components/FrontEnd/SectionTitle.vue";
 import SeeAllButton from "../../components/FrontEnd/SeeAllButton.vue";
 import ReadMoreButton from "../../components/FrontEnd/ReadMoreButton.vue";
@@ -29,14 +27,12 @@ const form = useForm({
 const subscriptionMessage = ref("");
 
 function submit() {
-    // Reset previous message
     subscriptionMessage.value = "";
 
     form.post(route("subscription"), {
         onSuccess: (page) => {
             form.reset("email");
 
-            // Set new message if backend returns one
             if (page.props.subscriptionMessage) {
                 subscriptionMessage.value = page.props.subscriptionMessage;
             }
@@ -47,7 +43,6 @@ function submit() {
 </script>
 
 <template>
-    <Head title="Home"></Head>
     <div v-if="banners && banners.length" class="banner-slider">
         <Carousel :autoplay="6000" :wrap-around="true">
             <Slide v-for="banner in props.banners" :key="banner.id">

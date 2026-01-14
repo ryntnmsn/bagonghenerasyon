@@ -35,7 +35,7 @@ const articleTitle = props.article.title;
                         </span>
                     </p>
                     <h1
-                        class="text-[26px] leading-[36px] md:text-[36px] md:leading-[46px] font-medium text-gray-800"
+                        class="text-[26px] leading-9 md:text-[36px] md:leading-[46px] font-medium text-gray-800"
                     >
                         {{ article.title }}
                     </h1>
@@ -201,7 +201,7 @@ const articleTitle = props.article.title;
                                 />
 
                                 <h2
-                                    class="text-gray-700 group-hover:text-red group-hover:underline"
+                                    class="text-gray-700 group-hover:text-red group-hover:underline group-hover:underline-offset-5"
                                 >
                                     {{ article.title }}
                                 </h2>

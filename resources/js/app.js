@@ -6,7 +6,10 @@ import FrontendLayout from "./Layouts/FrontendLayout.vue";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 
 createInertiaApp({
-    title: (title) => `BHPL | ${title}`,
+    title: (title) =>
+        title
+            ? `${title} | Bagong Henerasyon Partylist`
+            : "Bagong Henerasyon Partylist",
     resolve: (name) => {
         const pages = import.meta.glob("./Pages/**/*.vue", { eager: true });
 
