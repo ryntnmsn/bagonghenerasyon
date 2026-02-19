@@ -18,13 +18,13 @@
             <div class="max-w-[1400px] mx-auto px-4 py-4">
                 <div class="flex justify-between items-center h-auto">
                     <!-- Logo -->
-                    <Link href="/">
+                    <a href="/">
                         <img
                             :src="'/storage/images/BHPL_Logo.png'"
                             alt="Bagong Henerasyon PartyList Logo"
                             class="w-[180px] md:w-[200px]"
                         />
-                    </Link>
+                    </a>
 
                     <!-- Desktop Menu -->
                     <nav class="hidden md:flex h-full gap-8">

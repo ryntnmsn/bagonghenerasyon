@@ -31,7 +31,7 @@
                                     :href="
                                         route(
                                             'single_article_category',
-                                            category.slug
+                                            category.slug,
                                         )
                                     "
                                     class="text-gray-700 hover:text-red hover:underline hover:underline-offset-4"
@@ -90,53 +90,68 @@
                                 class="flex flex-row md:mt-3 mt-0 gap-2 md:justify-start justify-center"
                             >
                                 <li>
-                                    <Link>
+                                    <a
+                                        href="https://www.facebook.com/bagonghenerasyonofficial"
+                                        target="_blank"
+                                    >
                                         <img
                                             :src="`/storage/images/fb_icon.svg`"
                                             alt="Bagong Henerasyon Partylist FB Page"
                                             class="w-6"
                                         />
-                                    </Link>
+                                    </a>
                                 </li>
                                 <li>
-                                    <Link>
+                                    <a
+                                        href="https://www.instagram.com/bh_partylist"
+                                        target="_blank"
+                                    >
                                         <img
                                             :src="`/storage/images/instagram_icon.svg`"
                                             alt="Bagong Henerasyon Partylist Instagram Page"
                                             class="w-6"
                                         />
-                                    </Link>
+                                    </a>
                                 </li>
                                 <li>
-                                    <Link>
+                                    <a
+                                        href="https://twitter.com/BH_Partylist"
+                                        target="_blank"
+                                    >
                                         <img
                                             :src="`/storage/images/x_icon.svg`"
                                             alt="Bagong Henerasyon Partylist X Page"
                                             class="w-6"
                                         />
-                                    </Link>
+                                    </a>
                                 </li>
                                 <li>
-                                    <Link>
+                                    <a
+                                        href="https://www.tiktok.com/@bagonghenerasyon"
+                                        target="_blank"
+                                    >
                                         <img
                                             :src="`/storage/images/tiktok_icon.svg`"
                                             alt="Bagong Henerasyon Partylist Tiktok Page"
                                             class="w-6"
                                         />
-                                    </Link>
+                                    </a>
                                 </li>
                                 <li>
-                                    <Link>
+                                    <a
+                                        href="https://www.youtube.com/@BagongHenerasyon"
+                                        target="_blank"
+                                    >
                                         <img
                                             :src="`/storage/images/youtube_icon.svg`"
                                             alt="Bagong Henerasyon Partylist Youtube Page"
                                             class="w-6"
                                         />
-                                    </Link>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="mt-8">
+                        <!-- <div class="mt-8">
                             <h5 class="text-gray-700 font-bold text-base">
                                 CONTACTS
                             </h5>
@@ -153,7 +168,7 @@
                                     <p>Email: mail@bagonghenerasyon.ph</p>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -161,7 +176,7 @@
         <div class="bg-red">
             <div class="w-full max-w-[1400px] mx-auto">
                 <p class="px-4 text-white py-1 text-center">
-                    <small>© Copyright 2025 bagonghenerasyon.ph</small>
+                    <small>© Copyright 2026 bagonghenerasyon.ph</small>
                 </p>
             </div>
         </div>

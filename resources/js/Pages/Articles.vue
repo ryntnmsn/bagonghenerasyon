@@ -1,31 +1,31 @@
 <template>
     <Head title="News"></Head>
     <PageTitle name="News" />
-    <div class="w-full max-w-[1400px] mx-auto mt-5 md:mt-10 mb-10">
+    <div class="w-full max-w-[1400px] mx-auto mt-5 md:mt-6 mb-10">
         <div class="px-4">
             <div class="flex justify-end gap-2 mb-4">
                 <button
                     @click="viewMode = 'grid'"
                     :class="[
-                        'p-2 rounded-lg border border-gray-300',
+                        'p-2 rounded-md cursor-pointer shadow',
                         viewMode === 'grid'
                             ? 'bg-red text-white'
                             : 'bg-white text-gray-700',
                     ]"
                 >
-                    <LayoutGrid class="w-7" />
+                    <LayoutGrid class="w-6" />
                 </button>
 
                 <button
                     @click="viewMode = 'list'"
                     :class="[
-                        'p-2 rounded-lg border border-gray-300',
+                        'p-2 rounded-md cursor-pointer shadow',
                         viewMode === 'list'
                             ? 'bg-red text-white'
                             : 'bg-white text-gray-700',
                     ]"
                 >
-                    <LayoutList class="w-7" />
+                    <LayoutList class="w-6" />
                 </button>
             </div>
 
