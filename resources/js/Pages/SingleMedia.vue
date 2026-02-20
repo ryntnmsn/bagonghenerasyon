@@ -3,7 +3,7 @@
     <PageTitle :name="`${media.title}`" />
     <div class="w-full max-w-[1400px] mx-auto mt-5 md:mt-10 mb-10">
         <div class="px-4">
-            <a :href="route('selfieCreate')" class="block">
+            <Link :href="route('selfieCreate')" class="block">
                 <div
                     id="selfie"
                     v-if="btnSelfie"
@@ -11,11 +11,11 @@
                 >
                     UPLOAD YOUR SELFIES
                 </div>
-            </a>
+            </Link>
             <div
                 class="columns-1 md:columns-2 xl:columns-3 gap-6 mt-5 space-y-6"
             >
-                <a :href="route('selfie')" class="block">
+                <Link :href="route('selfie')" class="block">
                     <div
                         id="selfie"
                         v-if="showSelfie"
@@ -23,7 +23,7 @@
                     >
                         SELFIES
                     </div>
-                </a>
+                </Link>
 
                 <div
                     v-for="(image, index) in media.images"
