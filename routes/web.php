@@ -29,7 +29,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/search', 'search')->name('search');
 
     //Selfies media
-    Route::get('/media/cvbcvbdfgdfg/selfie', 'single_media_selfie')->name('selfie');
+    Route::get('/media/bh50/selfie', 'single_media_selfie')->name('selfie');
 });
 
 
