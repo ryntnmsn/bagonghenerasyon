@@ -6,13 +6,13 @@
             <div
                 id="selfie"
                 v-if="btnSelfie"
-                class="py-20 bg-red rounded-xl text-white text-center font-medium text-xl relative"
+                class="py-10 bg-red border-2 border-red-300 rounded-xl text-white text-center font-medium text-xl relative"
             >
                 <Link
                     :href="route('selfieCreate')"
-                    class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center"
-                    >UPLOAD YOUR SELFIES</Link
-                >
+                    class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center gap-2"
+                    ><span> UPLOAD YOUR SELFIES</span> <span> <Camera /></span
+                ></Link>
             </div>
 
             <div
@@ -21,9 +21,16 @@
                 <div
                     id="selfie"
                     v-if="showSelfie"
-                    class="py-30 bg-red rounded-xl text-white text-center font-medium text-xl"
+                    :style="{
+                        backgroundImage: `url('/storage/images/selfies_bg.jpg')`,
+                    }"
+                    class="bg-cover py-50 rounded-xl text-white text-center font-medium text-xl relative transition-all duration-300 hover:-translate-y-2 cursor-pointer"
                 >
-                    <Link :href="route('selfie')" class="block"> SELFIES </Link>
+                    <Link
+                        :href="route('selfie')"
+                        class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center"
+                    >
+                    </Link>
                 </div>
 
                 <div
@@ -81,6 +88,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import PageTitle from "../Layouts/Components/FrontEnd/PageTitle.vue";
+import { Camera } from "lucide-vue-next";
 
 const showSelfie = ref(false);
 const btnSelfie = ref(false);
@@ -88,7 +96,7 @@ const btnSelfie = ref(false);
 onMounted(() => {
     const path = window.location.pathname.replace(/\/$/, "");
 
-    if (path === "/media/bh50") {
+    if (path === "/media/cvbcvbdfgdfg") {
         showSelfie.value = true;
         btnSelfie.value = true;
     }
