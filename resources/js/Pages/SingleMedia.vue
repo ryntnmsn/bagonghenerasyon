@@ -85,10 +85,9 @@ const showSelfie = ref(false);
 const btnSelfie = ref(false);
 
 onMounted(() => {
-    const target = "https://bagonghenerasyon.ph/media/bh50";
-    const current = window.location.origin + window.location.pathname;
+    const path = window.location.pathname.replace(/\/$/, "");
 
-    if (current.replace(/\/$/, "") === target) {
+    if (path === "/media/bh50") {
         showSelfie.value = true;
         btnSelfie.value = true;
     }

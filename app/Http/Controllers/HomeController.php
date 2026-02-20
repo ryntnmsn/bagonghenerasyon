@@ -160,7 +160,8 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
         : asset('/storage/images/og-image.jpg');
 
         return Inertia::render('SingleMedia', [
-            'media' => $media
+            'media' => $media,
+            'routeName' => request()->route()->getName(),
         ])->withViewData([
             'meta' => [
                 'title' => $media->title . ' | Bagong Henerasyon Partylist',
@@ -169,6 +170,7 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
             ],
         ]);
     }
+
 
 
     //SELFIE
