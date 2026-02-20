@@ -96,7 +96,7 @@ const btnSelfie = ref(false);
 onMounted(() => {
     const path = window.location.pathname.replace(/\/$/, "");
 
-    if (path === "/media/cvbcvbdfgdfg") {
+    if (path === "/media/bh50") {
         showSelfie.value = true;
         btnSelfie.value = true;
     }
