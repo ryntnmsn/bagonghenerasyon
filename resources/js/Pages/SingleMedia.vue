@@ -3,27 +3,28 @@
     <PageTitle :name="`${media.title}`" />
     <div class="w-full max-w-[1400px] mx-auto mt-5 md:mt-10 mb-10">
         <div class="px-4">
-            <Link :href="route('selfieCreate')" class="block">
-                <div
-                    id="selfie"
-                    v-if="btnSelfie"
-                    class="py-20 bg-red rounded-xl text-white text-center font-medium text-xl"
+            <div
+                id="selfie"
+                v-if="btnSelfie"
+                class="py-20 bg-red rounded-xl text-white text-center font-medium text-xl relative"
+            >
+                <Link
+                    :href="route('selfieCreate')"
+                    class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center"
+                    >UPLOAD YOUR SELFIES</Link
                 >
-                    UPLOAD YOUR SELFIES
-                </div>
-            </Link>
+            </div>
+
             <div
                 class="columns-1 md:columns-2 xl:columns-3 gap-6 mt-5 space-y-6"
             >
-                <Link :href="route('selfie')" class="block">
-                    <div
-                        id="selfie"
-                        v-if="showSelfie"
-                        class="py-30 bg-red rounded-xl text-white text-center font-medium text-xl"
-                    >
-                        SELFIES
-                    </div>
-                </Link>
+                <div
+                    id="selfie"
+                    v-if="showSelfie"
+                    class="py-30 bg-red rounded-xl text-white text-center font-medium text-xl"
+                >
+                    <Link :href="route('selfie')" class="block"> SELFIES </Link>
+                </div>
 
                 <div
                     v-for="(image, index) in media.images"
