@@ -102,7 +102,7 @@ const submit = () => {
                             >
                                 <img
                                     :src="preview"
-                                    class="rounded-md shadow w-full min-w-[300px] h-[300px] object-cover group-hover:opacity-[.5]"
+                                    class="rounded-md shadow w-full min-w-[250px] h-[500px] object-cover group-hover:opacity-[.5]"
                                 />
 
                                 <!-- Remove button -->
@@ -123,7 +123,7 @@ const submit = () => {
                             <button
                                 id="uploadBtn"
                                 type="submit"
-                                class="btn w-full text-center text-white rounded flex justify-center"
+                                class="btn w-full text-center text-white rounded flex justify-center !text-lg"
                                 :disabled="form.processing"
                             >
                                 UPLOAD

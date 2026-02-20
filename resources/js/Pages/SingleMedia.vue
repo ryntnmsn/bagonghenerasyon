@@ -24,7 +24,7 @@
                     :style="{
                         backgroundImage: `url('/storage/images/selfies_bg.jpg')`,
                     }"
-                    class="bg-cover py-50 rounded-xl text-white text-center font-medium text-xl relative transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                    class="bg-cover bg-center py-50 rounded-xl text-white text-center font-medium text-xl relative transition-all duration-300 hover:-translate-y-2 cursor-pointer"
                 >
                     <Link
                         :href="route('selfie')"
