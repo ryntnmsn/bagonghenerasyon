@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-use App\Models\Media;
-use App\Models\Banner;
 use App\Models\Article;
+use App\Models\ArticleCategory;
+use App\Models\Banner;
+use App\Models\Media;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
-use App\Models\ArticleCategory;
+use Illuminate\Support\Facades\File;
+use Inertia\Inertia;
 
 class HomeController extends Controller
 {
@@ -168,6 +169,25 @@ empowering individuals with knowledge and skills. Achieve a healthy, educated, p
             ],
         ]);
     }
+
+
+    //SELFIE
+    public function single_media_selfie() {
+
+        $files = File::files(public_path('/storage/selfies'));
+
+        $images = collect($files)->map(function ($file) {
+            return 'storage/selfies/' . $file->getFilename();
+        });
+
+        return Inertia::render('SingleMediaSelfie', [
+            'images' => $images
+        ]);
+    }
+
+
+
+
 
 
     public function subscription(Request $request) {

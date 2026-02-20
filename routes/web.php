@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\SubscriptionController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\ArticleCategoryController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SelfieUploadController;
 
 // sleep(1);
 //Home
@@ -26,8 +27,17 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/about', 'about')->name('about');
     Route::post('/subscription/store', 'subscription')->name('subscription');
     Route::get('/search', 'search')->name('search');
+
+    //Selfies media
+    Route::get('/media/cvbcvbdfgdfg/selfie', 'single_media_selfie')->name('selfie');
 });
 
+
+//SelfieUpload
+Route::controller(SelfieUploadController::class)->group(function() {
+    Route::get('/selfie_create', 'create')->name('selfieCreate');
+    Route::post('/selfie_store', 'store')->name('selfieStore');
+}); 
 
 //Auth
 Route::controller(AuthController::class)->group(function () {
